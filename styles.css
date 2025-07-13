@@ -1,0 +1,26 @@
+
+/* Custom Intima Connect Styles */
+body {
+  scroll-behavior: smooth;
+}
+
+a:hover {
+  transition: all 0.3s ease-in-out;
+}
+
+button {
+  transition: background-color 0.3s ease-in-out;
+}
+
+input, select {
+  transition: border-color 0.2s ease-in-out;
+}
+
+/* Example utility overrides or additions */
+.bg-gradient-hero {
+  background-image: linear-gradient(to right, #fce4ec, #f3e5f5, #ede7f6);
+}
+
+.shadow-xl-custom {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}

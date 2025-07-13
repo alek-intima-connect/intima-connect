@@ -1,0 +1,12 @@
+intima-connect/
+├── index.html
+├── features.html
+├── ai.html
+├── community.html
+├── subscribe.html
+├── css/
+│   └── styles.css (optional if custom styling grows)
+├── js/
+│   └── app.js (for chatbot/quiz logic)
+├── assets/
+│   └── images, logos, icons
