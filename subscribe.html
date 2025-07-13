@@ -22,6 +22,7 @@
   <meta name="twitter:description" content="Learn, grow, and connect with access to everything Intima has to offer." />
   <meta name="twitter:image" content="https://www.intimaconnect.com/assets/logo.png" />
 
+  <!-- ✅ Styles -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -43,7 +44,7 @@
     <h2 class="text-3xl font-bold mb-4">Join Intima Connect</h2>
     <p class="text-lg mb-8">Your safe space to learn, ask, and grow is just a few clicks away. Sign up for personalized support, AI access, and more.</p>
 
-    <form action="#" method="POST" class="bg-gray-100 p-8 rounded-lg shadow-md">
+    <form id="subscribeForm" class="bg-gray-100 p-8 rounded-lg shadow-md">
       <div class="grid gap-4">
         <input type="text" name="name" placeholder="Your Name" required class="p-3 rounded border border-gray-300" />
         <input type="email" name="email" placeholder="Email Address" required class="p-3 rounded border border-gray-300" />
@@ -53,7 +54,7 @@
           <option value="monthly">Monthly – $4.99/mo</option>
           <option value="annual">Annual – $39.99/yr</option>
         </select>
-        <button type="submit" class="bg-purple-600 text-white px-6 py-3 rounded font-semibold hover:bg-purple-700">Join Now</button>
+        <button type="submit" class="bg-purple-600 text-white px-6 py-3 rounded font-semibold hover:bg-purple-700 transition-colors">Join Now</button>
       </div>
     </form>
 
@@ -64,6 +65,31 @@
     © 2025 Intima Connect. All rights reserved.
   </footer>
 
-  <script src="app.js"></script>
+  <!-- ✅ Inline Form Logic -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("subscribeForm");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const name = form.name.value.trim();
+        const email = form.email.value.trim();
+        const plan = form.plan.value;
+
+        if (!name || !email || !plan) {
+          alert("Please fill in all fields before submitting.");
+          return;
+        }
+
+        form.innerHTML = `
+          <div class="text-center">
+            <h3 class="text-2xl font-bold mb-2 text-green-600">🎉 You're In!</h3>
+            <p class="text-gray-700">Thanks for joining Intima Connect. Check your inbox for next steps.</p>
+          </div>
+        `;
+      });
+    });
+  </script>
+
 </body>
 </html>
