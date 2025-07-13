@@ -15,13 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Example of where you'd send the form data to a server
-    // fetch("/api/subscribe", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify({ name, email, plan }),
-    // }).then(response => ...);
-
     form.innerHTML = `
       <div class="text-center">
         <h3 class="text-2xl font-bold mb-2 text-green-600">🎉 You're In!</h3>
