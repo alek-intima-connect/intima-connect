@@ -1,139 +1,60 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="cupcake">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Intima Connect | Inclusive Sex Education for Gen Z</title>
-
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Intima Connect is a modern sex education platform designed for Gen Z. Learn about wellness, relationships, and health in a safe, inclusive space.">
-  <link rel="canonical" href="https://www.intimaconnect.com/" />
-  <meta property="og:title" content="Intima Connect" />
-  <meta property="og:description" content="A mobile-first wellness platform for inclusive, anonymous sex education." />
-  <meta property="og:image" content="https://www.intimaconnect.com/assets/logo.png" />
-  <meta property="og:url" content="https://www.intimaconnect.com/" />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Intima Connect" />
-  <meta name="twitter:description" content="Inclusive, anonymous, AI-supported sex education and wellness for Gen Z." />
-  <meta name="twitter:image" content="https://www.intimaconnect.com/assets/logo.png" />
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-</head>
-<body class="font-sans">
-
-  <!-- Navbar -->
-  <header class="navbar bg-base-100 shadow-md sticky top-0 z-50">
-    <div class="flex-1">
-      <a href="/" class="text-2xl font-bold">Intima Connect</a>
-    </div>
-    <div class="flex-none space-x-4">
-      <a href="/features.html" class="btn btn-ghost btn-sm">Features</a>
-      <a href="/ai.html" class="btn btn-ghost btn-sm">AI Assistant</a>
-      <a href="/community.html" class="btn btn-ghost btn-sm">Community</a>
-      <a href="/subscribe.html" class="btn btn-primary btn-sm">Join</a>
-      <button id="darkToggle" class="btn btn-outline btn-sm">Toggle Dark</button>
-    </div>
-  </header>
+<main>
 
   <!-- Hero Section -->
-  <main>
-    <section class="text-center py-20 px-4 bg-base-200 shadow-xl">
-      <h2 class="text-4xl font-extrabold mb-4">Modern Sex Education for the Digital Age</h2>
-      <p class="text-lg max-w-2xl mx-auto mb-8">Safe, inclusive, and interactive learning powered by real experts and AI support. Welcome to your space to grow, learn, and connect.</p>
-      <a href="/subscribe.html" class="btn btn-secondary btn-lg">Get Started</a>
-    </section>
+  <section class="hero min-h-[80vh] bg-base-200 text-center">
+    <div class="hero-content flex-col">
+      <h1 class="text-5xl font-extrabold">Modern Sex Education for the Digital Age</h1>
+      <p class="py-6 max-w-xl text-lg">Safe, inclusive, and interactive learning powered by real experts and AI support. Welcome to your space to grow, learn, and connect.</p>
+      <a href="/subscribe.html" class="btn btn-primary btn-lg">Get Started</a>
+    </div>
+  </section>
 
-    <!-- Feature Cards -->
-    <section class="py-16 px-6 max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
-      <div class="card bg-base-100 shadow-md p-6">
-        <h3 class="text-xl font-bold mb-2">Inclusive Learning</h3>
+  <!-- Feature Cards -->
+  <section class="py-16 px-6 max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+    <div class="card bg-base-100 shadow-md">
+      <div class="card-body">
+        <h3 class="card-title">Inclusive Learning</h3>
         <p>Accessible, culturally sensitive, and gender-neutral content that welcomes all identities and experiences.</p>
       </div>
-      <div class="card bg-base-100 shadow-md p-6">
-        <h3 class="text-xl font-bold mb-2">AI Assistant</h3>
+    </div>
+    <div class="card bg-base-100 shadow-md">
+      <div class="card-body">
+        <h3 class="card-title">AI Assistant</h3>
         <p>Ask anonymous, judgment-free questions and get expert-backed answers from our RooBot AI.</p>
       </div>
-      <div class="card bg-base-100 shadow-md p-6">
-        <h3 class="text-xl font-bold mb-2">Gamified Wellness</h3>
+    </div>
+    <div class="card bg-base-100 shadow-md">
+      <div class="card-body">
+        <h3 class="card-title">Gamified Wellness</h3>
         <p>Track your knowledge, earn badges, and explore bite-sized lessons that actually stick.</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Testimonials -->
-    <section class="py-20 bg-base-200">
-      <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-3xl font-bold mb-4">Why Gen Z Trusts Intima</h2>
-        <p class="mb-8 text-lg text-base-content/80">Safe. Empowering. Anonymous. It’s education made for you.</p>
+  <!-- Testimonials -->
+  <section class="py-20 bg-base-200">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-4">Why Gen Z Trusts Intima</h2>
+      <p class="mb-8 text-lg text-base-content/80">Safe. Empowering. Anonymous. It’s education made for you.</p>
 
-        <div role="tablist" class="tabs tabs-bordered justify-center mb-6">
-          <a role="tab" class="tab tab-active" id="tab-1" onclick="showTestimonial(1)">Alex</a>
-          <a role="tab" class="tab" id="tab-2" onclick="showTestimonial(2)">Zara</a>
-          <a role="tab" class="tab" id="tab-3" onclick="showTestimonial(3)">Dev</a>
-        </div>
-
-        <div id="testimonial" class="max-w-xl mx-auto">
-          <p class="text-lg italic text-base-content/90">"Intima helped me understand boundaries without shame. I wish school taught like this."</p>
-          <p class="mt-4 font-semibold">— Alex, 17</p>
-        </div>
+      <div role="tablist" class="tabs tabs-bordered justify-center mb-6">
+        <a role="tab" class="tab tab-active" id="tab-1" onclick="showTestimonial(1)">Alex</a>
+        <a role="tab" class="tab" id="tab-2" onclick="showTestimonial(2)">Zara</a>
+        <a role="tab" class="tab" id="tab-3" onclick="showTestimonial(3)">Dev</a>
       </div>
-    </section>
 
-    <!-- Final CTA -->
-    <section class="py-20 text-center">
-      <h2 class="text-3xl font-bold mb-4">Ready to Learn Without Judgment?</h2>
-      <p class="mb-8 max-w-xl mx-auto">Whether you're exploring gender identity or setting healthy relationship boundaries, Intima is here for you.</p>
-      <a href="/subscribe.html" class="btn btn-primary btn-lg">Join Intima Now</a>
-    </section>
-  </main>
+      <div id="testimonial" class="max-w-xl mx-auto">
+        <p class="text-lg italic text-base-content/90">"Intima helped me understand boundaries without shame. I wish school taught like this."</p>
+        <p class="mt-4 font-semibold">— Alex, 17</p>
+      </div>
+    </div>
+  </section>
 
-  <!-- Footer -->
-  <footer class="footer footer-center p-6 bg-base-100 text-sm text-base-content">
-    © 2025 Intima Connect. All rights reserved.
-  </footer>
+  <!-- Final CTA -->
+  <section class="bg-base-100 py-20 text-center border-t border-base-300">
+    <h2 class="text-3xl font-bold mb-4">Ready to Learn Without Judgment?</h2>
+    <p class="mb-8 max-w-xl mx-auto">Whether you're exploring gender identity or setting healthy relationship boundaries, Intima is here for you.</p>
+    <a href="/subscribe.html" class="btn btn-secondary btn-lg">Join Intima Now</a>
+  </section>
 
-  <!-- Theme Toggle + Testimonial Logic -->
-  <script>
-    // Theme toggle logic
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) document.documentElement.setAttribute("data-theme", savedTheme);
-
-    document.getElementById("darkToggle").addEventListener("click", () => {
-      const currentTheme = document.documentElement.getAttribute("data-theme");
-      const next = currentTheme === "dark" ? "cupcake" : "dark";
-      document.documentElement.setAttribute("data-theme", next);
-      localStorage.setItem("theme", next);
-    });
-
-    // Testimonials logic
-    const testimonials = {
-      1: {
-        text: `"Intima helped me understand boundaries without shame. I wish school taught like this."`,
-        author: "— Alex, 17"
-      },
-      2: {
-        text: `"As a queer teen, finding this app felt like finally being seen. It’s inclusive and smart."`,
-        author: "— Zara, 16"
-      },
-      3: {
-        text: `"I love the AI bot. It’s like texting a cool, respectful older sibling with real info."`,
-        author: "— Dev, 18"
-      }
-    };
-
-    function showTestimonial(id) {
-      const t = testimonials[id];
-      document.getElementById("testimonial").innerHTML = `
-        <p class="text-lg italic text-base-content/90">${t.text}</p>
-        <p class="mt-4 font-semibold">${t.author}</p>
-      `;
-      document.querySelectorAll('[role="tab"]').forEach(tab => tab.classList.remove("tab-active"));
-      document.getElementById(`tab-${id}`).classList.add("tab-active");
-    }
-  </script>
-
-  <script src="app.js"></script>
-</body>
-</html>
+</main>
