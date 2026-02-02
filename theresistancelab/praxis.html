@@ -436,33 +436,46 @@
 </head>
 <body>
 
-    <div class="resistance-popup" id="strikePopup">
-        <div class="popup-header">
-            <span>// SYSTEM ALERT //</span>
-            <button class="close-btn" onclick="closePopup()">×</button>
-        </div>
-        <div class="popup-content">
-            <div class="headline">JOIN THE STRIKE</div>
-            <div class="subtext">
-                JAN 29 2026<br>
-                NO WORK. NO SCHOOL.<br>
-                NO SHOPPING.
-            </div>
-            <div class="expanded-content">
-                <p>The system relies on your participation. Today, we withdraw it.</p>
-                <p><strong>Directives:</strong></p>
-                <ul style="margin: 0; padding-left: 15px;">
-                    <li>Freeze all transactions.</li>
-                    <li>Gather at local community hubs.</li>
-                    <li>Do not engage with corporate media.</li>
-                </ul>
-            </div>
-            <div class="action-group">
-                <button class="btn" onclick="toggleExpand()" id="expandBtn">Read Briefing</button>
-                <a href="https://workerorganizing.org/the-power-of-the-strike-15194/" class="btn btn-primary">Why We Strike</a>
-            </div>
-        </div>
-    </div>
+	<div class="resistance-popup" id="strikePopup">
+		<div class="popup-header">
+			<span>// EVENT LOCATOR //</span>
+			<button class="close-btn" onclick="closePopup()">×</button>
+		</div>
+		<div class="popup-content">
+			<div class="headline">FIND YOUR COMMUNITY</div>
+			<div class="subtext">
+				CONNECT LOCALLY.<br>
+				STAY INFORMED.<br>
+				TAKE ACTION.
+			</div>
+			
+			<div class="expanded-content">
+				<p>Enter your location to find town halls, meetups, and civic events near you.</p>
+				
+			<form action="https://www.mobilize.us/" method="get" target="_blank" style="margin-top: 15px;">
+				<div style="display: flex; flex-wrap: wrap; gap: 8px;">
+					<input type="text" name="address" placeholder="Zip Code" style="
+						flex: 1 1 120px; /* Grows, shrinks, min-width 120px */
+						min-width: 0;
+						padding: 10px;
+						box-sizing: border-box; 
+						background: rgba(0,0,0,0.2);
+						border: 1px solid currentColor;
+						color: inherit;
+						font-family: inherit;
+					">
+					<button type="submit" class="btn" style="flex: 0 0 auto; white-space: nowrap;">SEARCH >></button>
+				</div>
+			</form>
+
+			</div>
+
+			<div class="action-group">
+				<button class="btn" onclick="toggleExpand()" id="expandBtn">How it works</button>
+				<a href="https://www.mobilize.us/" class="btn btn-primary">Browse All</a>
+			</div>
+		</div>
+	</div>
 
     <nav style="background: var(--bg-paper); border-bottom: var(--border-thick); position: sticky; top: 0; z-index: 1000; padding: 15px 5%;">
         <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto;">
