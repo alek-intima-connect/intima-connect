@@ -3,197 +3,476 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>The Canon | The Resistance Lab</title>
-  <meta name="description" content="The doctrinal hub of The Resistance Lab. Why we must recover our wealth and expand the commons.">
+  <meta name="description" content="The doctrinal hub of The Resistance Lab. Why we must recover our wealth, expand the commons, and build structural alternatives to exploitation." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.intimaconnect.com/theresistancelab/canon/canon.html" />
 
-  <meta property="og:title" content="The Canon | The Resistance Lab">
-  <meta property="og:type" content="website">
-  
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Merriweather:ital,wght@0,300;0,700;1,300&family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://www.intimaconnect.com/theresistancelab/canon/canon.html" />
+  <meta property="og:title"       content="The Canon | The Resistance Lab" />
+  <meta property="og:description" content="The doctrinal hub of The Resistance Lab. Why we must recover our wealth and expand the commons." />
+  <meta property="og:site_name"   content="The Resistance Lab" />
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="The Canon | The Resistance Lab" />
+  <meta name="twitter:description" content="The doctrinal hub of The Resistance Lab. Why we must recover our wealth and expand the commons." />
 
-  <base href="/theresistancelab/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "The Canon",
+    "description": "The doctrinal hub of The Resistance Lab — expanding what works and recovering surplus value for the commons.",
+    "url": "https://www.intimaconnect.com/theresistancelab/canon/canon.html",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "The Resistance Lab",
+      "url": "https://www.intimaconnect.com/theresistancelab/"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Merriweather:ital,wght@0,300;1,300&family=Oswald:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script defer src="/_vercel/speed-insights/script.js"></script>
 
   <style>
+    :root { --red:#CD0000; --paper:#F2F0E6; --ink:#111111; --white:#ffffff; }
+    *, *::before, *::after { box-sizing: border-box; }
+
     body {
-      background-color: #F2F0E6;
-      color: #111;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+      background-color: var(--paper);
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
-    .font-shout { font-family: 'Anton', sans-serif; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    .font-shout   { font-family: 'Anton', sans-serif; text-transform: uppercase; letter-spacing: 0.05em; }
     .font-machine { font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: 0.1em; }
-    .font-theory { font-family: 'Merriweather', serif; line-height: 1.8; }
-    .bg-paper { background-color: #F2F0E6; }
-    .border-red { border-color: #CD0000; }
-    .text-red { color: #CD0000; }
-    
-    /* NAV CARDS */
-    .portal-card {
-      border: 3px solid #111;
-      background: white;
-      padding: 2rem;
-      transition: all 0.2s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 100%;
+    .font-theory  { font-family: 'Merriweather', serif; line-height: 1.8; }
+    .text-red   { color: var(--red); }
+    .bg-paper   { background-color: var(--paper); }
+    .border-red { border-color: var(--red); }
+
+    /* Skip link */
+    .skip-link { position:absolute; top:-100%; left:1rem; background:var(--red); color:var(--white); padding:0.5rem 1rem; font-family:'Oswald',sans-serif; z-index:9999; transition:top 0.2s; }
+    .skip-link:focus { top:1rem; }
+
+    /* ── Hero animations ── */
+    @keyframes fadeUp   { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes lineGrow { from{transform:scaleX(0)} to{transform:scaleX(1)} }
+    @keyframes wordIn   { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+    @media (prefers-reduced-motion:reduce) { *{animation:none!important;transition:none!important} }
+
+    /* ── Hero (dark) ── */
+    .hero-outer { background:#0d0d0d; overflow:hidden; position:relative; }
+    .hero-grid  {
+      position:absolute; inset:0; pointer-events:none;
+      background-image: linear-gradient(rgba(205,0,0,0.07) 1px,transparent 1px), linear-gradient(90deg,rgba(205,0,0,0.07) 1px,transparent 1px);
+      background-size:48px 48px;
+      mask-image:radial-gradient(ellipse 90% 90% at 50% 50%,black 20%,transparent 100%);
+      -webkit-mask-image:radial-gradient(ellipse 90% 90% at 50% 50%,black 20%,transparent 100%);
     }
-    .portal-card:hover {
-      transform: translate(-4px, -4px);
-      box-shadow: 8px 8px 0px #CD0000;
-      border-color: #111;
-    }
-    
-    /* DOCTRINE TEXT */
-    .doctrine-text {
-      border-left: 4px solid #CD0000;
-      padding-left: 1.5rem;
-    }
+    .hero-inner { position:relative; z-index:2; padding:4rem 2.5rem 3rem; text-align:center; display:flex; flex-direction:column; align-items:center; }
+    .hero-eyebrow { font-family:'Oswald',sans-serif; font-size:11px; font-weight:400; letter-spacing:0.28em; text-transform:uppercase; color:var(--red); margin-bottom:1.75rem; animation:fadeUp 0.6s ease both; animation-delay:0.1s; }
+    .hero-headline { font-family:'Anton',sans-serif; font-size:clamp(2.4rem,7vw,4.6rem); font-weight:400; text-transform:uppercase; letter-spacing:0.04em; line-height:0.95; color:var(--paper); margin:0 0 0.15em; max-width:780px; }
+    .hero-headline .word   { display:inline-block; animation:wordIn 0.5s cubic-bezier(0.22,1,0.36,1) both; }
+    .hero-headline .accent { color:var(--red); }
+    .hero-divider { width:64px; height:3px; background:var(--red); margin:1.75rem auto; transform-origin:left; animation:lineGrow 0.7s cubic-bezier(0.22,1,0.36,1) both; animation-delay:0.8s; }
+    .hero-sub { font-family:'Merriweather',serif; font-size:clamp(0.95rem,2vw,1.15rem); font-weight:300; font-style:italic; line-height:1.8; color:#9a968e; max-width:540px; margin:0 0 2.5rem; animation:fadeUp 0.7s ease both; animation-delay:0.9s; }
+    .hero-sub strong { color:var(--paper); font-style:normal; font-weight:300; }
+    .hero-cta-row { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; animation:fadeUp 0.6s ease both; animation-delay:1.1s; }
+    .hero-btn { font-family:'Oswald',sans-serif; font-size:12px; font-weight:400; letter-spacing:0.18em; text-transform:uppercase; padding:12px 28px; cursor:pointer; border:none; text-decoration:none; display:inline-block; transition:transform 0.15s,background 0.15s,border-color 0.15s,color 0.15s; }
+    .hero-btn:active { transform:scale(0.97); }
+    .hero-btn-primary { background:var(--red); color:var(--paper); }
+    .hero-btn-primary:hover { background:#a80000; }
+    .hero-btn-ghost  { background:transparent; color:#9a968e; border:1px solid rgba(176,172,160,0.25); }
+    .hero-btn-ghost:hover { border-color:var(--red); color:var(--paper); }
+
+    /* ── Ticker ── */
+    .hero-ticker { position:relative; z-index:2; border-top:1px solid rgba(205,0,0,0.2); padding:0.9rem 2.5rem; display:flex; gap:3rem; justify-content:center; flex-wrap:wrap; background:rgba(205,0,0,0.04); }
+    .t-item { display:flex; align-items:baseline; gap:10px; animation:fadeUp 0.6s ease both; }
+    .t-num  { font-family:'Anton',sans-serif; font-size:1.5rem; font-weight:400; color:var(--red); line-height:1; }
+    .t-lbl  { font-family:'Oswald',sans-serif; font-size:10px; font-weight:400; letter-spacing:0.13em; text-transform:uppercase; color:#4a4742; max-width:140px; line-height:1.45; }
+
+    /* ── Feel pills ── */
+    .hero-feel { position:relative; z-index:2; border-top:1px solid rgba(255,255,255,0.05); padding:2rem 2.5rem 2.5rem; display:flex; flex-direction:column; align-items:center; gap:1.1rem; }
+    .f-label  { font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:#3a3733; }
+    .f-pills  { display:flex; flex-wrap:wrap; gap:9px; justify-content:center; max-width:640px; }
+    .f-pill   { font-family:'Merriweather',serif; font-size:12px; font-style:italic; font-weight:300; color:#6a6660; padding:7px 16px; border:1px solid rgba(255,255,255,0.07); border-radius:100px; cursor:pointer; animation:fadeUp 0.5s ease both; transition:color 0.2s,border-color 0.2s,background 0.2s; }
+    .f-pill:hover  { color:var(--paper); border-color:rgba(205,0,0,0.45); background:rgba(205,0,0,0.07); }
+    .f-pill.active { color:var(--paper); border-color:var(--red); background:rgba(205,0,0,0.11); }
+    .f-resp { font-family:'Merriweather',serif; font-size:13px; font-style:italic; font-weight:300; color:#9a968e; line-height:1.8; max-width:500px; text-align:center; min-height:48px; transition:opacity 0.25s; }
+    .f-resp strong { color:var(--paper); font-style:normal; font-weight:300; }
+
+    /* ── Bridge dark→cream ── */
+    .hero-bridge { background:var(--paper); border-top:4px solid var(--red); padding:3rem 2.5rem 0; display:flex; flex-direction:column; align-items:center; gap:0.6rem; text-align:center; }
+    .bridge-label { font-family:'Oswald',sans-serif; font-size:11px; font-weight:400; letter-spacing:0.22em; text-transform:uppercase; color:var(--red); }
+    .bridge-title { font-family:'Anton',sans-serif; font-size:clamp(1.4rem,3.5vw,2rem); text-transform:uppercase; letter-spacing:0.05em; line-height:1.1; color:var(--ink); }
+    .bridge-body  { font-family:'Merriweather',serif; font-size:13px; font-style:italic; font-weight:300; color:#555; line-height:1.75; max-width:480px; padding-bottom:2rem; }
+
+    /* ── Doctrine ── */
+    .doctrine-text { border-left:4px solid var(--red); padding-left:1.5rem; }
+
+    /* ── Why now ── */
+    .why-now       { border-top:4px solid var(--red); border-bottom:4px solid var(--red); padding:1.75rem 0; margin-bottom:3rem; }
+    .why-now-label { font-family:'Oswald',sans-serif; font-size:11px; font-weight:400; letter-spacing:0.18em; text-transform:uppercase; color:var(--red); margin-bottom:0.75rem; }
+
+    /* ── Stat rail ── */
+    .stat-rail { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:3rem; }
+    .stat-card { background:var(--white); border:3px solid var(--ink); border-top:4px solid var(--red); padding:1.25rem 1rem; }
+    .stat-num  { font-family:'Anton',sans-serif; font-size:2rem; color:var(--ink); line-height:1; margin-bottom:6px; text-transform:uppercase; }
+    .stat-lbl  { font-family:'Merriweather',serif; font-size:12px; color:#555; line-height:1.55; }
+    @media (max-width:640px) { .stat-rail { grid-template-columns:1fr; } }
+
+    /* ── Concept cards ── */
+    .concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:3rem; }
+    .concept-card { background:var(--white); border:3px solid var(--ink); padding:1.5rem; cursor:pointer; transition:transform 0.2s ease,box-shadow 0.2s ease; }
+    .concept-card:hover { transform:translate(-3px,-3px); box-shadow:6px 6px 0 var(--red); }
+    .concept-tag   { display:inline-block; font-family:'Oswald',sans-serif; font-size:10px; font-weight:400; letter-spacing:0.12em; text-transform:uppercase; padding:2px 8px; margin-bottom:8px; background:var(--paper); color:#555; border:1px solid #ccc; }
+    .concept-title { font-family:'Anton',sans-serif; font-size:1.05rem; text-transform:uppercase; letter-spacing:0.04em; color:var(--ink); margin-bottom:6px; }
+    .concept-body  { font-family:'Merriweather',serif; font-size:13px; line-height:1.7; color:#444; }
+    .concept-body strong { color:var(--ink); font-weight:700; }
+    @media (max-width:640px) { .concept-grid { grid-template-columns:1fr; } }
+
+    /* ── Reading path ── */
+    .path-step    { display:flex; gap:16px; align-items:stretch; }
+    .path-left    { display:flex; flex-direction:column; align-items:center; width:32px; flex-shrink:0; }
+    .path-num     { width:32px; height:32px; border-radius:50%; border:2px solid var(--red); display:flex; align-items:center; justify-content:center; font-family:'Oswald',sans-serif; font-size:12px; font-weight:400; color:var(--red); flex-shrink:0; background:var(--paper); }
+    .path-line    { width:2px; background:#ccc; flex:1; min-height:16px; }
+    .path-content { flex:1; padding:0 0 1.75rem; }
+    .path-title   { font-family:'Anton',sans-serif; font-size:1rem; text-transform:uppercase; letter-spacing:0.04em; color:var(--ink); margin-bottom:4px; margin-top:4px; }
+    .path-desc    { font-family:'Merriweather',serif; font-size:13px; color:#555; line-height:1.65; }
+    .path-link    { display:inline-flex; align-items:center; gap:4px; font-family:'Oswald',sans-serif; font-size:11px; font-weight:400; color:var(--red); text-decoration:none; margin-top:6px; text-transform:uppercase; letter-spacing:0.1em; border-bottom:1px solid transparent; transition:border-color 0.15s; }
+    .path-link:hover { border-color:var(--red); }
+
+    /* ── Section label ── */
+    .section-label { font-family:'Oswald',sans-serif; font-size:11px; font-weight:400; letter-spacing:0.18em; text-transform:uppercase; color:#888; margin-bottom:1rem; border-bottom:2px solid var(--ink); padding-bottom:0.5rem; }
+
+    /* ── Portal cards ── */
+    .portal-card { border:3px solid var(--ink); background:var(--white); padding:2rem; display:flex; flex-direction:column; justify-content:space-between; height:100%; transition:transform 0.2s ease,box-shadow 0.2s ease; }
+    .portal-card:hover { transform:translate(-4px,-4px); box-shadow:8px 8px 0 var(--red); }
+    .portal-card:focus-within { outline:3px solid var(--red); outline-offset:2px; }
+    .portal-card--placeholder { opacity:0.45; cursor:not-allowed; pointer-events:none; }
+    @media (prefers-reduced-motion:reduce) { .portal-card,.concept-card { transition:none; } }
   </style>
 </head>
 
 <body class="antialiased flex flex-col min-h-screen">
 
-  <header class="border-b-4 border-black sticky top-0 z-50 bg-paper opacity-95">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- HEADER -->
+  <header class="border-b-4 border-black sticky top-0 z-50 bg-paper" style="opacity:0.97;">
     <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
-      <div class="flex items-center gap-3">
-        <svg class="w-8 h-8" viewBox="0 0 100 100" fill="none" stroke="#CD0000" stroke-width="6">
+      <a href="https://www.intimaconnect.com/theresistancelab/" class="flex items-center gap-3" aria-label="The Resistance Lab — Home">
+        <svg class="w-8 h-8" viewBox="0 0 100 100" fill="none" stroke="#CD0000" stroke-width="6" aria-hidden="true" focusable="false">
           <polygon points="50,5 61,35 95,35 68,55 79,85 50,65 21,85 32,55 5,35 39,35" stroke-linejoin="round"/>
         </svg>
-        <a href="index.html" class="font-shout text-2xl tracking-wide">The Resistance Lab</a>
-      </div>
-      <nav class="hidden md:flex gap-8 font-machine text-sm font-bold text-gray-800">
-        <a href="canon/canon.html" class="hover:text-[#CD0000] hover:underline decoration-4 underline-offset-4">
-          The Canon
-        </a>
-      
-        <a href="reclamation.html" class="hover:text-[#CD0000] hover:underline decoration-4 underline-offset-4">
-          Mutual Aid
-        </a>
-      
-        <a href="praxis.html" class="hover:text-[#CD0000] hover:underline decoration-4 underline-offset-4">
-          The United Front
-        </a>
+        <span class="font-shout text-2xl tracking-wide">The Resistance Lab</span>
+      </a>
+      <nav aria-label="Primary navigation" class="hidden md:flex gap-8 font-machine text-sm font-bold text-gray-800">
+        <a href="https://www.intimaconnect.com/theresistancelab/canon/canon.html" class="hover:text-red hover:underline decoration-4 underline-offset-4" aria-current="page">The Canon</a>
+        <a href="https://www.intimaconnect.com/theresistancelab/mutual-aid/reclamation.html" class="hover:text-red hover:underline decoration-4 underline-offset-4">Mutual Aid</a>
+        <a href="https://www.intimaconnect.com/theresistancelab/united-front/praxis.html" class="hover:text-red hover:underline decoration-4 underline-offset-4">The United Front</a>
       </nav>
     </div>
   </header>
 
-  <main class="flex-grow max-w-5xl mx-auto w-full px-6 py-16">
+  <!-- HERO -->
+  <div class="hero-outer" role="banner" aria-label="Page introduction">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="hero-eyebrow">The Resistance Lab &nbsp;·&nbsp; The Canon</div>
+      <h1 class="hero-headline" id="hero-headline" aria-label="You already know something is wrong. This is the vocabulary."></h1>
+      <div class="hero-divider" aria-hidden="true"></div>
+      <p class="hero-sub">
+        Not a manifesto. Not a lecture. A mirror —
+        for the feeling you've carried your whole life that
+        <strong>the system wasn't built for you.</strong>
+        You were right. Here's the proof, the history, and the path forward.
+      </p>
+      <div class="hero-cta-row">
+        <a class="hero-btn hero-btn-primary" href="https://www.intimaconnect.com/theresistancelab/canon/history.html">Start with history</a>
+        <a class="hero-btn hero-btn-ghost" href="https://theresistancelab.substack.com/subscribe" target="_blank" rel="noopener">Join the registry</a>
+      </div>
+    </div>
 
-    <section class="mb-24">
-      <p class="font-machine text-[#CD0000] mb-4 tracking-[0.2em]">/// OUR DOCTRINE</p>
-      <h1 class="font-shout text-5xl md:text-7xl mb-8 leading-none">The Great Expansion</h1>
-      
+    <div class="hero-ticker" aria-label="Key statistics">
+      <div class="t-item" style="animation-delay:1.3s">
+        <div class="t-num">$0.10</div>
+        <div class="t-lbl">Hourly wage gain for the bottom 50% since 1979</div>
+      </div>
+      <div class="t-item" style="animation-delay:1.45s">
+        <div class="t-num">720:1</div>
+        <div class="t-lbl">CEO-to-worker pay ratio, up from 21:1 in 1965</div>
+      </div>
+      <div class="t-item" style="animation-delay:1.6s">
+        <div class="t-num">8</div>
+        <div class="t-lbl">People who own as much as half of humanity combined</div>
+      </div>
+    </div>
+
+    <div class="hero-feel" aria-label="Personal entry points">
+      <div class="f-label">What brought you here?</div>
+      <div class="f-pills" role="group" aria-label="Select what resonates">
+        <div class="f-pill" role="button" tabindex="0" data-r="That feeling has a name: <strong>alienation</strong>. The gap between how hard you work and what you receive isn't bad luck — it's a structural feature. The Canon explains exactly how it's designed and by whom.">I work hard but can't get ahead</div>
+        <div class="f-pill" role="button" tabindex="0" data-r="You're not cynical — you're <strong>correct</strong>. Systems captured by wealth stop representing people. The Canon documents how that happens, and every time in history people have broken it open.">Politicians don't represent me</div>
+        <div class="f-pill" role="button" tabindex="0" data-r="That instinct is sound. The idea that there are only two options is itself a tool of the status quo. The Canon introduces the <strong>full spectrum</strong> of what's been tried, proven, and deliberately suppressed.">There has to be a better way</div>
+        <div class="f-pill" role="button" tabindex="0" data-r="Good. Anger without direction is noise. The Canon gives you the history and vocabulary to <strong>turn that anger into understanding</strong> — and understanding into action.">I'm angry and don't know where to put it</div>
+        <div class="f-pill" role="button" tabindex="0" data-r="Most people haven't. Labor uprisings, cooperative economies, and every successful alternative to private accumulation were edited out. The archives exist to <strong>fill those gaps.</strong>">I feel like I missed something in school</div>
+      </div>
+      <div class="f-resp" id="feel-resp" aria-live="polite">Select what resonates — this page will meet you there.</div>
+    </div>
+  </div>
+
+  <!-- BRIDGE -->
+  <div class="hero-bridge">
+    <div class="bridge-label">/// Our Doctrine</div>
+    <div class="bridge-title">The Great Expansion</div>
+    <p class="bridge-body">We are told that socialism is a foreign concept — yet we live with it every day. The fire department doesn't ask for your credit card. The highway has no toll at every mile. The library is free. These systems work because they prioritize human need over private profit. Our doctrine is simple: expand what works.</p>
+  </div>
+
+  <!-- MAIN -->
+  <main id="main-content" class="flex-grow max-w-5xl mx-auto w-full px-6 py-16">
+
+    <!-- Full doctrine -->
+    <section class="mb-20" aria-labelledby="doctrine-heading">
       <div class="doctrine-text font-theory text-lg md:text-xl text-gray-900 space-y-6">
-        <p>
-          We are told that socialism is a foreign concept, yet we live with it every day. When your house catches fire, the fire department does not ask for your credit card. When you drive on the highway, there is no toll booth at every mile. When you walk into a library, the knowledge is free.
-        </p>
-        <p>
-          These are socialist systems. They work because they prioritize <strong>human need</strong> over <strong>private profit</strong>.
-        </p>
-        <p class="font-bold">
-          Our doctrine is simple: Expand what works.
-        </p>
-        <p>
-          We must take our money back from the bourgeoisie—the parasitic class that hoards the surplus value of our labor—and vector it into expanding these systems. Healthcare, housing, and food should function like the fire department: available to all, funded by the wealth we created, and free at the point of use.
-        </p>
+        <p>We must take our money back from the bourgeoisie — the parasitic class that hoards the surplus value of our labor — and vector it into expanding these systems. Healthcare, housing, and food should function like the fire department: available to all, funded by the wealth we created, and free at the point of use.</p>
+        <p class="font-bold text-base">The Canon is not a reading list. It is a record of everything the powerful hoped you'd never find.</p>
       </div>
     </section>
 
-    <section>
+    <!-- Why this matters now -->
+    <section class="mb-20" aria-labelledby="why-heading">
+      <div class="why-now">
+        <div class="why-now-label">/// Why this matters now</div>
+        <p class="font-theory text-lg text-gray-900">The world's eight richest individuals hold as much wealth as the bottom half of humanity combined. Not because they worked harder — because the systems we inherited were designed to concentrate value at the top and keep it there. <strong>The Canon exists to name that design, explain how it works, and document every time in history people have successfully built something better.</strong> If you've ever felt like the economy isn't working for you despite doing everything right — you're not wrong. This is the vocabulary for what you've already experienced.</p>
+      </div>
+      <div class="stat-rail">
+        <div class="stat-card">
+          <div class="stat-num">$0.10</div>
+          <div class="stat-lbl">Median hourly gain for bottom 50% of US workers since 1979, adjusted for inflation</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">3,400%</div>
+          <div class="stat-lbl">CEO-to-worker pay ratio increase since 1965 — from 21:1 to 720:1</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">153</div>
+          <div class="stat-lbl">Fortune 500 companies that paid zero federal income tax in at least one recent year</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core concepts -->
+    <section class="mb-20" aria-labelledby="concepts-heading">
+      <div class="section-label" id="concepts-heading">Core concepts — start here</div>
+      <div class="concept-grid">
+        <div class="concept-card" role="button" tabindex="0" onclick="window.location='https://www.intimaconnect.com/theresistancelab/canon/history.html'">
+          <div class="concept-tag">Labor Theory of Value</div>
+          <div class="concept-title">Where does profit come from?</div>
+          <div class="concept-body">When you work, you produce more value than your paycheck reflects. That gap — between what you produce and what you're paid — is called <strong>surplus value</strong>. It flows upward to shareholders and owners. This isn't an accident; it's the mechanism the system runs on.</div>
+        </div>
+        <div class="concept-card" role="button" tabindex="0" onclick="window.location='https://www.intimaconnect.com/theresistancelab/canon/assembly.html'">
+          <div class="concept-tag">Collective Ownership</div>
+          <div class="concept-title">Who should own the means of production?</div>
+          <div class="concept-body">Factories, hospitals, and housing are built by workers — yet owned by investors. <strong>Collective ownership</strong> means the people who operate a resource share in its control and returns. Worker co-ops, municipal utilities, and public land trusts are working examples right now.</div>
+        </div>
+        <div class="concept-card" role="button" tabindex="0" onclick="window.location='https://www.intimaconnect.com/theresistancelab/canon/history.html'">
+          <div class="concept-tag">Historical Examples</div>
+          <div class="concept-title">Has this worked before?</div>
+          <div class="concept-body">The <strong>Paris Commune (1871)</strong>, the <strong>New Deal (1933–39)</strong>, and the <strong>Nordic social democracies</strong> all demonstrate that redistributive, worker-centered policy produces measurable gains in health, literacy, and life expectancy — and that the ruling class fights hard to end them.</div>
+        </div>
+        <div class="concept-card" role="button" tabindex="0" onclick="window.location='https://www.intimaconnect.com/theresistancelab/canon/assembly.html'">
+          <div class="concept-tag">Modern Alternatives</div>
+          <div class="concept-title">What could replace it?</div>
+          <div class="concept-body"><strong>Universal Basic Income</strong> decouples survival from employment. <strong>Worker co-operatives</strong> put governance in employees' hands. <strong>Municipal ownership</strong> removes profit motive from essential services. None of these are theoretical — all exist and function today.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reading path -->
+    <section class="mb-20" aria-labelledby="path-heading">
+      <div class="section-label" id="path-heading">Where to start — a reading path</div>
+      <div>
+        <div class="path-step">
+          <div class="path-left"><div class="path-num">1</div><div class="path-line"></div></div>
+          <div class="path-content">
+            <div class="path-title">Read the doctrine above</div>
+            <div class="path-desc">The Great Expansion is your entry point — the core argument in plain language, no prior knowledge needed. Re-read it after the archives; it'll land differently.</div>
+          </div>
+        </div>
+        <div class="path-step">
+          <div class="path-left"><div class="path-num">2</div><div class="path-line"></div></div>
+          <div class="path-content">
+            <div class="path-title">Enter the Historical Truths archive</div>
+            <div class="path-desc">Start with history. The events you weren't taught — labor movements, colonial extraction, suppressed uprisings — form the foundation of everything else. Context before theory.</div>
+            <a class="path-link" href="https://www.intimaconnect.com/theresistancelab/canon/history.html">Enter Archive 01 ➜</a>
+          </div>
+        </div>
+        <div class="path-step">
+          <div class="path-left"><div class="path-num">3</div><div class="path-line"></div></div>
+          <div class="path-content">
+            <div class="path-title">Read The Echoes</div>
+            <div class="path-desc">The words of people who already said what you've been feeling — soldiers, scientists, executives, presidents who broke with power. The desire for liberation isn't fringe. It's universal.</div>
+            <a class="path-link" href="https://www.intimaconnect.com/theresistancelab/canon/quotes.html">Read The Echoes ➜</a>
+          </div>
+        </div>
+        <div class="path-step">
+          <div class="path-left"><div class="path-num">4</div><div class="path-line"></div></div>
+          <div class="path-content">
+            <div class="path-title">Subscribe to The Lab Letters</div>
+            <div class="path-desc">The Canon is static. The Lab Letters are live — ongoing analysis connecting these frameworks to what's happening right now.</div>
+            <a class="path-link" href="https://theresistancelab.substack.com/subscribe" target="_blank" rel="noopener">Join the Registry ➜</a>
+          </div>
+        </div>
+        <div class="path-step">
+          <div class="path-left"><div class="path-num">5</div><div class="path-line" style="opacity:0"></div></div>
+          <div class="path-content">
+            <div class="path-title">Move into action — The United Front</div>
+            <div class="path-desc">Theory without action is just reading. The United Front gives you the tools, networks, and protocols to organize in the real world.</div>
+            <a class="path-link" href="https://www.intimaconnect.com/theresistancelab/united-front/praxis.html">Enter The United Front ➜</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Archives -->
+    <section aria-labelledby="archives-heading">
       <div class="flex items-end justify-between mb-8 border-b-2 border-black pb-4">
-          <h2 class="font-shout text-4xl">
-	    The Archives
-	  <p class="font-machine text-sm mb-2 text-[#CD0000] ">ARCHIVE_V1.1</p>
-          </h2>
-        <span class="font-machine text-gray-500">/// CHOOSE A CARD</span>
+        <div>
+          <h2 id="archives-heading" class="font-shout text-4xl leading-none">The Archives</h2>
+          <p class="font-machine text-sm mt-1 text-red">ARCHIVE_V1.1</p>
+        </div>
+        <span class="font-machine text-gray-500" aria-hidden="true">/// CHOOSE A CARD</span>
       </div>
-
-      <div class="grid md:grid-cols-2 gap-8">
-        
-        <a href="canon/history.html" class="portal-card group">
-          <div>
-            <div class="flex justify-between items-start mb-4">
-              <span class="font-shout text-5xl text-gray-200 group-hover:text-[#CD0000] transition-colors">01</span>
-              <svg class="w-8 h-8 group-hover:text-[#111]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+      <ul class="grid md:grid-cols-2 gap-8 list-none p-0 m-0">
+        <li>
+          <a href="https://www.intimaconnect.com/theresistancelab/canon/history.html" class="portal-card group">
+            <div>
+              <div class="flex justify-between items-start mb-4">
+                <span class="font-shout text-5xl text-gray-200 group-hover:text-red transition-colors" aria-hidden="true">01</span>
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+              </div>
+              <h3 class="font-shout text-3xl mb-2">Historical Truths</h3>
+              <p class="font-theory text-sm text-gray-600">The narrative you were taught is a fabrication. Access the factual analysis of imperialism, fascism, and the history of the proletariat.</p>
             </div>
-            <h3 class="font-shout text-3xl mb-2">Historical Truths</h3>
-            <p class="font-theory text-sm text-gray-600">
-              The narrative you were taught is a fabrication. Access the factual analysis of imperialism, fascism, and the history of the proletariat.
-            </p>
-          </div>
-          <span class="font-machine text-xs mt-6 border-b-2 border-transparent group-hover:border-[#CD0000] inline-block w-max">ENTER ARCHIVE ➜</span>
-        </a>
-
-        <a href="canon/quotes.html" class="portal-card group">
-          <div>
-            <div class="flex justify-between items-start mb-4">
-              <span class="font-shout text-5xl text-gray-200 group-hover:text-[#CD0000] transition-colors">02</span>
-              <svg class="w-8 h-8 group-hover:text-[#111]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+            <span class="font-machine text-xs mt-6 border-b-2 border-transparent group-hover:border-red inline-block w-max">ENTER ARCHIVE ➜</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.intimaconnect.com/theresistancelab/canon/quotes.html" class="portal-card group">
+            <div>
+              <div class="flex justify-between items-start mb-4">
+                <span class="font-shout text-5xl text-gray-200 group-hover:text-red transition-colors" aria-hidden="true">02</span>
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+              </div>
+              <h3 class="font-shout text-3xl mb-2">The Echoes</h3>
+              <p class="font-theory text-sm text-gray-600">Words that resonate with our struggle, spoken by those you wouldn't expect. Proof that the desire for liberation is universal.</p>
             </div>
-            <h3 class="font-shout text-3xl mb-2">The Echoes</h3>
-            <p class="font-theory text-sm text-gray-600">
-              Words that resonate with our struggle, spoken by those you wouldn't expect. Proof that the desire for liberation is universal.
-            </p>
-          </div>
-          <span class="font-machine text-xs mt-6 border-b-2 border-transparent group-hover:border-[#CD0000] inline-block w-max">READ THE WORDS ➜</span>
-        </a>
-
-        <a href="canon/assembly.html" class="portal-card group">
-          <div>
-            <div class="flex justify-between items-start mb-4">
-              <span class="font-shout text-5xl text-gray-200 group-hover:text-[#CD0000] transition-colors">03</span>
-              <svg class="w-8 h-8 group-hover:text-[#111]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+            <span class="font-machine text-xs mt-6 border-b-2 border-transparent group-hover:border-red inline-block w-max">READ THE WORDS ➜</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.intimaconnect.com/theresistancelab/canon/assembly.html" class="portal-card group">
+            <div>
+              <div class="flex justify-between items-start mb-4">
+                <span class="font-shout text-5xl text-gray-200 group-hover:text-red transition-colors" aria-hidden="true">03</span>
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              </div>
+              <h3 class="font-shout text-3xl mb-2">The Assembly</h3>
+              <p class="font-theory text-sm text-gray-600">Fear protects the status quo. Curiosity builds the new world. We have the technology to make work free — we just need the nerve to take the reins.</p>
             </div>
-            <h3 class="font-shout text-3xl mb-2">The Assembly</h3>
-            <p class="font-theory text-sm text-gray-600">
-              Fear protects the status quo. Curiosity builds the new world. We have the technology to make work free—we just need the nerve to take the reins.
-            </p>
-          </div>
-          <span class="font-machine text-xs mt-6 border-b-2 border-transparent group-hover:border-[#CD0000] inline-block w-max">TAKE THE DIVE ➜</span>
-        </a>
-
-        <a href="#" class="portal-card group">
-          <div>
-            <div class="flex justify-between items-start mb-4">
-              <span class="font-shout text-5xl text-gray-200 group-hover:text-[#CD0000] transition-colors">XX</span>
-              <svg class="w-8 h-8 group-hover:text-[#111]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+            <span class="font-machine text-xs mt-6 border-b-2 border-transparent group-hover:border-red inline-block w-max">TAKE THE DIVE ➜</span>
+          </a>
+        </li>
+        <li aria-hidden="true">
+          <div class="portal-card portal-card--placeholder">
+            <div>
+              <div class="flex justify-between items-start mb-4">
+                <span class="font-shout text-5xl text-gray-200">XX</span>
+                <svg class="w-8 h-8 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+              </div>
+              <h3 class="font-shout text-3xl mb-2">Coming Soon</h3>
+              <p class="font-theory text-sm text-gray-400">The next archive is being prepared. Check back soon.</p>
             </div>
-            <h3 class="font-shout text-3xl mb-2">PLACE HOLDER</h3>
-            <p class="font-theory text-sm text-gray-600">
-              HOLD
-            </p>
+            <span class="font-machine text-xs mt-6 text-gray-300">— PENDING —</span>
           </div>
-          <span class="font-machine text-xs mt-6 border-b-2 border-transparent group-hover:border-[#CD0000] inline-block w-max">HOLD ➜</span>
-        </a>
-        
-      </div>
+        </li>
+      </ul>
     </section>
 
   </main>
 
+  <!-- FOOTER -->
   <footer class="bg-gray-900 text-gray-200 py-4 border-t-4 border-red">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left px-6">
       <div class="mb-6 md:mb-0">
         <span class="font-shout text-3xl tracking-wide uppercase block mb-2">The Resistance Lab</span>
         <p class="font-theory text-sm italic text-gray-400">Novum Mundum Vetere Pasce</p>
       </div>
-      <div class="flex flex-col items-center md:items-end">
+      <nav aria-label="Footer links" class="flex flex-col items-center md:items-end">
         <div class="flex space-x-6 font-machine text-sm tracking-widest mb-4 font-bold">
           <a href="#" class="hover:text-red transition-colors">Source Code</a>
           <a href="#" class="hover:text-red transition-colors">Doctrine_v1.pdf</a>
         </div>
         <span class="text-red font-shout px-3 py-1 text-xs tracking-wider">EST. 2026 // DECENTRALIZED</span>
-      </div>
+      </nav>
     </div>
   </footer>
 
   <script>
-    window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+  (function () {
+    var words = [
+      {t:"You already",c:""},{t:"know",c:"accent"},{t:"something",c:""},
+      {t:"is wrong.",c:""},{t:"This is",c:""},{t:"the",c:""},{t:"vocabulary.",c:"accent"}
+    ];
+    var hh = document.getElementById('hero-headline');
+    var l1 = document.createElement('div');
+    var l2 = document.createElement('div');
+    l2.style.marginTop = '0.08em';
+    hh.appendChild(l1); hh.appendChild(l2);
+    words.forEach(function(w,i){
+      var s = document.createElement('span');
+      s.className = 'word' + (w.c ? ' '+w.c : '');
+      s.textContent = (i>0?'\u00a0':'') + w.t;
+      s.style.animationDelay = (0.25+i*0.07)+'s';
+      (i<4?l1:l2).appendChild(s);
+    });
+
+    var pills = document.querySelectorAll('.f-pill');
+    var resp  = document.getElementById('feel-resp');
+    pills.forEach(function(p,i){
+      p.style.animationDelay = (1.4+i*0.08)+'s';
+      function activate(){
+        pills.forEach(function(x){x.classList.remove('active');});
+        p.classList.add('active');
+        resp.style.opacity='0';
+        setTimeout(function(){
+          resp.innerHTML=p.getAttribute('data-r');
+          resp.style.opacity='1';
+        },180);
+      }
+      p.addEventListener('click',activate);
+      p.addEventListener('keydown',function(e){
+        if(e.key==='Enter'||e.key===' '){e.preventDefault();activate();}
+      });
+    });
+
+    document.querySelectorAll('.concept-card').forEach(function(card){
+      card.addEventListener('keydown',function(e){
+        if(e.key==='Enter'||e.key===' '){e.preventDefault();card.click();}
+      });
+    });
+  })();
   </script>
-  <script defer src="/_vercel/speed-insights/script.js"></script>
 
 </body>
 </html>
