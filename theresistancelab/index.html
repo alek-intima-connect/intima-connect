@@ -3,253 +3,347 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Praxis | The Resistance Lab</title>
-  <meta name="description" content="The Resistance Lab is a grassroots effort to help develop our nation's next generation of leaders through collective wellness and structural alternatives.">
-  
-  <meta property="og:title" content="The Praxis | The Resistance Lab">
-  <meta property="og:description" content="The Resistance Lab is a grassroots effort to help develop our nation's next generation of leaders.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.intimaconnect.com/theresistancelab">
-    
-  <link rel="canonical" href="https://www.intimaconnect.com/theresistancelab" />
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <!-- Primary SEO -->
+  <title>The Resistance Lab | Organizing for Collective Well-Being</title>
+  <meta name="description" content="The Resistance Lab is a grassroots network building the next generation of leaders through collective wellness, mutual aid, and structural alternatives to exploitation." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.intimaconnect.com/theresistancelab/" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Merriweather:ital,wght@0,300;0,700;1,300&family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.intimaconnect.com/theresistancelab/" />
+  <meta property="og:title" content="The Resistance Lab | Organizing for Collective Well-Being" />
+  <meta property="og:description" content="A grassroots network building the next generation of leaders through collective wellness, mutual aid, and structural alternatives." />
+  <meta property="og:site_name" content="The Resistance Lab" />
 
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Resistance Lab | Organizing for Collective Well-Being" />
+  <meta name="twitter:description" content="A grassroots network building the next generation of leaders through collective wellness, mutual aid, and structural alternatives." />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "The Resistance Lab",
+    "url": "https://www.intimaconnect.com/theresistancelab/",
+    "description": "A grassroots network building the next generation of leaders through collective wellness, mutual aid, and structural alternatives.",
+    "foundingDate": "2026",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "intimaconnect@gmail.com",
+      "contactType": "General Inquiry"
+    }
+  }
+  </script>
+
+  <!-- Preconnect for font performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Fonts: load only what's used (removed unused Merriweather weights) -->
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Merriweather:ital,wght@0,300;1,300&family=Oswald:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind via CDN (production: replace with purged build) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+
+  <!-- Vercel Analytics (deferred for non-blocking load) -->
   <script defer src="/_vercel/insights/script.js"></script>
-  
-  <base href="/theresistancelab/">
+  <script defer src="/_vercel/speed-insights/script.js"></script>
 
   <style>
+    /* ─── CSS Custom Properties ─────────────────────────────────── */
+    :root {
+      --red:    #CD0000;
+      --paper:  #F2F0E6;
+      --ink:    #111111;
+      --white:  #ffffff;
+      --gray-mid: #6b7280;
+    }
+
+    /* ─── Base ──────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; }
+
     body {
-      background-color: #F2F0E6;
-      color: #111;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+      background-color: var(--paper);
+      /* Inline SVG noise: lightweight, no extra HTTP request */
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    /* TYPOGRAPHY */
-    .font-shout { font-family: 'Anton', sans-serif; text-transform: uppercase; letter-spacing: 0.05em; }
+    /* ─── Typography helpers ─────────────────────────────────────── */
+    .font-shout   { font-family: 'Anton', sans-serif; text-transform: uppercase; letter-spacing: 0.05em; }
     .font-machine { font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: 0.1em; }
-    .font-theory { font-family: 'Merriweather', serif; line-height: 1.8; }
+    .font-theory  { font-family: 'Merriweather', serif; line-height: 1.8; }
 
-    /* COLORS & UTILS */
-    .text-red { color: #CD0000; }
-    .text-gray { color: gray-200; }
-    .bg-paper { background-color: #F2F0E6; }
-    .border-red { border-color: #CD0000; }
-    .border-navy { border-color: #0b1c3c; }
-    
-    .shadow-red {
-      box-shadow: 8px 8px 0px #CD0000;
-    }
-    
-    /* COMPONENTS */
+    /* ─── Color utilities ────────────────────────────────────────── */
+    .text-red    { color: var(--red); }
+    .bg-paper    { background-color: var(--paper); }
+    .border-red  { border-color: var(--red); }
+
+    /* ─── Shadow ─────────────────────────────────────────────────── */
+    .shadow-red { box-shadow: 8px 8px 0 var(--red); }
+
+    /* ─── Pillar cards ───────────────────────────────────────────── */
     .pillar-card {
-      border: 3px solid #111;
+      border: 3px solid var(--ink);
       padding: 2rem;
-      background: white;
-      transition: all 0.2s ease;
+      background: var(--white);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
     .pillar-card:hover {
       transform: translate(-4px, -4px);
-      box-shadow: 6px 6px 0px #CD0000;
+      box-shadow: 6px 6px 0 var(--red);
     }
+
+    /* ─── Blockquote ─────────────────────────────────────────────── */
     .quote-blockade {
-      border-top: 4px solid #CD0000;
-      border-bottom: 4px solid #CD0000;
+      border-top: 4px solid var(--red);
+      border-bottom: 4px solid var(--red);
       padding: 2rem 0;
       margin: 2rem 0;
     }
-    .book-card:hover {
-      border-color: #CD0000;
+
+    /* ─── Form focus ─────────────────────────────────────────────── */
+    .email-input:focus {
+      outline: none;
+      border-color: var(--red);
     }
+
+    /* ─── Reduced motion ─────────────────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      .pillar-card { transition: none; }
+    }
+
+    /* ─── Skip link (accessibility) ──────────────────────────────── */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      background: var(--red);
+      color: var(--white);
+      padding: 0.5rem 1rem;
+      font-family: 'Oswald', sans-serif;
+      z-index: 9999;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: 1rem; }
   </style>
 </head>
 
-<body class="antialiased flex flex-col min-h-screen pb-24 md:pb-0">
+<body class="flex flex-col min-h-screen pb-24 md:pb-0">
 
-  <header class="border-b-4 border-black sticky top-0 z-50 bg-paper opacity-95">
+  <!-- Accessibility: skip to main content -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ─── HEADER ──────────────────────────────────────────────────── -->
+  <header class="border-b-4 border-black sticky top-0 z-50 bg-paper" style="opacity:0.97;">
     <div class="max-w-6xl mx-auto flex justify-between items-center px-4 py-3">
-      <div class="flex items-center gap-3">
-        <svg class="w-8 h-8" viewBox="0 0 100 100" fill="none" stroke="#CD0000" stroke-width="6">
-          <polygon points="50,5 61,35 95,35 68,55 79,85 50,65 21,85 32,55 5,35 39,35" stroke-linejoin="round"/>
+
+      <a href="https://www.intimaconnect.com/theresistancelab/" class="flex items-center gap-3" aria-label="The Resistance Lab — Home">
+        <!-- Inline SVG star logo (no extra HTTP request) -->
+        <svg class="w-8 h-8" viewBox="0 0 100 100" fill="none" stroke="#CD0000" stroke-width="6"
+             aria-hidden="true" focusable="false">
+          <polygon points="50,5 61,35 95,35 68,55 79,85 50,65 21,85 32,55 5,35 39,35"
+                   stroke-linejoin="round"/>
         </svg>
         <span class="font-shout text-2xl tracking-wide">The Resistance Lab</span>
-      </div>
-      <nav class="hidden md:flex gap-8 font-machine text-sm font-bold text-gray-800">
-        <a href="canon/canon.html" class="hover:text-[#CD0000] hover:underline decoration-4 underline-offset-4">
-          The Canon
-        </a>
-        
-        <a href="mutual-aid/reclamation.html" class="hover:text-[#CD0000] hover:underline decoration-4 underline-offset-4">
-          Mutual Aid
-        </a>
-        
-        <a href="united-front/praxis.html" class="hover:text-[#CD0000] hover:underline decoration-4 underline-offset-4">
-          The United Front
-        </a>
+      </a>
+
+      <nav aria-label="Primary navigation" class="hidden md:flex gap-8 font-machine text-sm font-bold text-gray-800">
+        <a href="https://www.intimaconnect.com/theresistancelab/canon/canon.html"            class="hover:text-red hover:underline decoration-4 underline-offset-4">The Canon</a>
+        <a href="https://www.intimaconnect.com/theresistancelab/mutual-aid/reclamation.html" class="hover:text-red hover:underline decoration-4 underline-offset-4">Mutual Aid</a>
+        <a href="https://www.intimaconnect.com/theresistancelab/united-front/praxis.html"    class="hover:text-red hover:underline decoration-4 underline-offset-4">The United Front</a>
       </nav>
     </div>
   </header>
 
-  <main class="flex-grow">
-    
-    <section class="max-w-5xl mx-auto px-6 py-24 text-center">
-      <p class="font-machine text-[#CD0000] mb-4 tracking-[0.2em]"> The network for the united front</p>
-      
-      <h1 class="font-shout text-1xl md:text-6xl leading-[0.9] mb-12">
+  <!-- ─── MAIN ────────────────────────────────────────────────────── -->
+  <main id="main-content" class="flex-grow">
+
+    <!-- Hero -->
+    <section class="max-w-5xl mx-auto px-6 py-24 text-center" aria-labelledby="hero-heading">
+      <p class="font-machine text-red mb-4 tracking-[0.2em]">The network for the united front</p>
+
+      <h1 id="hero-heading" class="font-shout text-5xl md:text-6xl leading-[0.9] mb-12">
         The time to act was yesterday.<br>
-        The next best time <span class="text-[#CD0000] underline decoration-4 underline-offset-8 text-red">Is Now.</span>
+        The next best time <span class="text-red underline decoration-4 underline-offset-8">Is Now.</span>
       </h1>
-      
-      <div class="quote-blockade max-w-4xl mx-auto text-left">
+
+      <blockquote class="quote-blockade max-w-4xl mx-auto text-left">
         <p class="font-theory text-lg md:text-xl text-gray-900 mb-4">
-          “Let the ruling classes tremble at a [proletariat] revolution. [We The People] have nothing to lose but [our] chains. [We] have a world to win. Working Men of All Countries, Unite!”
+          "Let the ruling classes tremble at a [proletariat] revolution. [We The People] have nothing
+          to lose but [our] chains. [We] have a world to win. Working Men of All Countries, Unite!"
         </p>
-        <p class="font-shout text-xl text-[#CD0000] text-right">
-          A powerful reminder from Marx and Engels
-        </p>
-      </div>
-
+        <footer class="font-shout text-xl text-red text-right">
+          <cite>A powerful reminder from Marx and Engels</cite>
+        </footer>
+      </blockquote>
     </section>
 
-    <section class="bg-black text-[#111] text-[#F2F0E6] py-16 border-t-4 border-red">
+    <!-- Four Pillars -->
+    <section class="bg-black py-16 border-t-4 border-red" aria-labelledby="pillars-heading">
       <div class="max-w-7xl mx-auto px-6">
+
         <div class="flex items-end justify-between mb-12 border-b border-gray-500 pb-4">
-          <h2 class="font-shout text-4xl text-white">Four Pillars of Humanity</h2>
-          <span class="font-machine text-red">/// OUR QUEST</span>
+          <h2 id="pillars-heading" class="font-shout text-4xl text-white">Four Pillars of Humanity</h2>
+          <span class="font-machine text-red" aria-hidden="true">/// OUR QUEST</span>
         </div>
-        
+
         <div class="grid md:grid-cols-2 gap-10">
-          
-          <div class="pillar-card text-black">
-            <h3 class="font-shout text-3xl mb-2">I. THE ORGANIZED COMMUNITY</h3>
-            <p class="font-theory text-sm text-gray-800">
-              Power is never granted; it is defended. The Vanguard exists as a barrier against the exploitation of the worker and the neglect of the vulnerable. We organize to protect the laborer, the elder, and the marginalized—not through charity, but through absolute solidarity. To harm one member of the working class is to challenge the safety of the entire community. We do not look for permission to protect our own against a fascist state.
-            </p>
-          </div>
 
-          <div class="pillar-card text-black">
-            <h3 class="font-shout text-3xl mb-2">II. THE ECONOMIC REALITY</h3>
+          <article class="pillar-card text-black">
+            <h3 class="font-shout text-3xl mb-2">I. The Organized Community</h3>
             <p class="font-theory text-sm text-gray-800">
-              Wealth is a direct result of labor, yet the value produced rarely stays with the people who created it. We don't advocate for theft; we advocate for recovery. Our goal is to redirect the surplus value of our work back into the community. By shifting resources away from private accumulation and into public infrastructure, we ensure that quality of life is a shared standard rather than a restricted privilege.
+              Power is never granted; it is defended. The Vanguard exists as a barrier against the
+              exploitation of the worker and the neglect of the vulnerable. We organize to protect
+              the laborer, the elder, and the marginalized—not through charity, but through absolute
+              solidarity. To harm one member of the working class is to challenge the safety of the
+              entire community. We do not look for permission to protect our own against a fascist state.
             </p>
-          </div>
+          </article>
 
-          <div class="pillar-card text-black">
-            <h3 class="font-shout text-3xl mb-2">III. THE HUMAN GOAL (EUDAIMONIA)</h3>
+          <article class="pillar-card text-black">
+            <h3 class="font-shout text-3xl mb-2">II. The Economic Reality</h3>
             <p class="font-theory text-sm text-gray-800">
-              Existing is not the same as living. We reject the idea that people should be satisfied with just getting by while navigating a system built on isolation. Our focus is on collective well-being. When we address a challenge for one person, we build a solution that benefits the group. True progress isn't measured by individual success, but by the floor we establish for everyone.
+              Wealth is a direct result of labor, yet the value produced rarely stays with the people
+              who created it. We don't advocate for theft; we advocate for recovery. Our goal is to
+              redirect the surplus value of our work back into the community. By shifting resources
+              away from private accumulation and into public infrastructure, we ensure that quality of
+              life is a shared standard rather than a restricted privilege.
             </p>
-          </div>
+          </article>
 
-          <div class="pillar-card text-black">
-            <h3 class="font-shout text-3xl mb-2">IV. THE CIVIC IMPERATIVE</h3>
+          <article class="pillar-card text-black">
+            <h3 class="font-shout text-3xl mb-2">III. The Human Goal (Eudaimonia)</h3>
             <p class="font-theory text-sm text-gray-800">
-              Accountability is not optional. When institutional systems stop serving the public interest and begin to exploit it, passive compliance is no longer a neutral act. We prioritize critical inquiry and transparency over blind trust. Knowledge and policy should not be handed down as absolute commands; they must be shaped and validated by the people they actually affect.
+              Existing is not the same as living. We reject the idea that people should be satisfied
+              with just getting by while navigating a system built on isolation. Our focus is on
+              collective well-being. When we address a challenge for one person, we build a solution
+              that benefits the group. True progress isn't measured by individual success, but by the
+              floor we establish for everyone.
             </p>
-          </div>
+          </article>
+
+          <article class="pillar-card text-black">
+            <h3 class="font-shout text-3xl mb-2">IV. The Civic Imperative</h3>
+            <p class="font-theory text-sm text-gray-800">
+              Accountability is not optional. When institutional systems stop serving the public
+              interest and begin to exploit it, passive compliance is no longer a neutral act. We
+              prioritize critical inquiry and transparency over blind trust. Knowledge and policy
+              should not be handed down as absolute commands; they must be shaped and validated by
+              the people they actually affect.
+            </p>
+          </article>
 
         </div>
       </div>
     </section>
 
-    <section class="py-24 px-6 max-w-5xl mx-auto">
+    <!-- Newsletter -->
+    <section class="py-24 px-6 max-w-5xl mx-auto" aria-labelledby="newsletter-heading">
       <div class="border-4 border-black p-8 md:p-12 bg-white shadow-red relative overflow-hidden">
-        
         <div class="grid md:grid-cols-2 gap-12 items-center relative z-10">
+
           <div>
-            <h2 class="font-shout text-5xl mb-4">The Lab Letters</h2>
-            <p class="font-machine text-gray-500 mb-6 tracking-widest">A SHARED PERSPECTIVE</p>
+            <h2 id="newsletter-heading" class="font-shout text-5xl mb-4">The Lab Letters</h2>
+            <p class="font-machine text-gray-500 mb-6 tracking-widest">A Shared Perspective</p>
             <p class="font-theory text-sm mb-6 leading-relaxed">
-              The systems we live in were rarely designed with our well-being in mind. We are documenting the transition toward something more intentional — a shared record of the work required to build a functional, collective alternative.
+              The systems we live in were rarely designed with our well-being in mind. We are
+              documenting the transition toward something more intentional — a shared record of the
+              work required to build a functional, collective alternative.
             </p>
-            <ul class="font-machine text-xs space-y-3 mb-6">
+            <ul class="font-machine text-xs space-y-3 mb-6" aria-label="Newsletter topics">
               <li class="flex items-center">
-                <span class="text-[#CD0000] mr-2">➜</span> 
-                <span>The Theory <span class="text-gray-400 font-normal">— Collective Well-being</span></span>
+                <span class="text-red mr-2" aria-hidden="true">➜</span>
+                The Theory <span class="text-gray-400 font-normal ml-1">— Collective Well-being</span>
               </li>
               <li class="flex items-center">
-                <span class="text-[#CD0000] mr-2">➜</span> 
-                <span>The Frameworks <span class="text-gray-400 font-normal">— Structural Alternatives</span></span>
+                <span class="text-red mr-2" aria-hidden="true">➜</span>
+                The Frameworks <span class="text-gray-400 font-normal ml-1">— Structural Alternatives</span>
               </li>
               <li class="flex items-center">
-                <span class="text-[#CD0000] mr-2">➜</span> 
-                <span>The Records <span class="text-gray-400 font-normal">— Documenting Progress</span></span>
+                <span class="text-red mr-2" aria-hidden="true">➜</span>
+                The Records <span class="text-gray-400 font-normal ml-1">— Documenting Progress</span>
               </li>
             </ul>
           </div>
-          <div class="bg-[#F2F0E6] p-6 border-2 border-black">
-          <form action="https://theresistancelab.substack.com/subscribe" method="GET" target="_blank">
-            <label class="block font-machine text-xs mb-2">Enter Email Here</label>
-            <input type="email" name="email" required placeholder="example@theresistancelab.net" class="w-full border-2 border-black p-3 font-mono text-sm mb-4 focus:outline-none focus:border-[#CD0000]">
-            <button class="w-full bg-black text-white font-machine py-3 hover:bg-[#CD0000] transition-colors">
-              Join the Registry
-            </button>
-          </form>
-            <p class="text-xs text-gray-400 mt-3 text-center font-mono">Privacy is a priority. You will be redirected to our Substack where The Lab Letters are currently being hosted.</p>
+
+          <div class="bg-paper p-6 border-2 border-black">
+            <!-- GET form redirects to Substack; action kept as-is -->
+            <form action="https://theresistancelab.substack.com/subscribe" method="GET" target="_blank"
+                  aria-label="Subscribe to The Lab Letters newsletter">
+              <label for="newsletter-email" class="block font-machine text-xs mb-2">Enter Email Here</label>
+              <input
+                id="newsletter-email"
+                type="email"
+                name="email"
+                required
+                autocomplete="email"
+                placeholder="you@example.com"
+                class="email-input w-full border-2 border-black p-3 font-mono text-sm mb-4 bg-white"
+              />
+              <button type="submit"
+                      class="w-full bg-black text-white font-machine py-3 hover:bg-red transition-colors"
+                      style="transition-property: background-color; transition-duration: 0.2s;">
+                Join the Registry
+              </button>
+            </form>
+            <p class="text-xs text-gray-400 mt-3 text-center font-mono">
+              Privacy is a priority. You will be redirected to our Substack.
+            </p>
           </div>
+
         </div>
       </div>
     </section>
 
   </main>
 
+  <!-- ─── FOOTER ──────────────────────────────────────────────────── -->
   <footer class="bg-gray-900 text-gray-300 py-4 border-t-4 border-red">
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left">
-    
+    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+
       <div class="mb-6 md:mb-0">
-        <span class="font-shout text-3xl text-gray-200 tracking-wide uppercase block mb-2">The Resistance Lab</span>
+        <span class="font-shout text-3xl text-gray-200 tracking-wide uppercase block mb-2">
+          The Resistance Lab
+        </span>
         <p class="font-theory text-sm italic">"Feed the new world with the old."</p>
       </div>
 
-      <div class="flex flex-col items-center md:items-end">
+      <nav aria-label="Footer links" class="flex flex-col items-center md:items-end">
         <div class="flex space-x-6 font-machine text-sm tracking-widest mb-4 font-bold">
-           <a href="#" class="hover:text-red transition-colors">Source Code</a>
+          <a href="#" class="hover:text-red transition-colors">Source Code</a>
           <a href="#" class="hover:text-red transition-colors">Doctrine_v1.pdf</a>
         </div>
         <span class="text-red font-shout px-3 py-1 text-xs tracking-wider">EST. 2026 // DECENTRALIZED</span>
-      </div>
+      </nav>
     </div>
 
     <div class="max-w-6xl mx-auto px-6 my-6">
-      <div class="border-t border-gray-700"></div>
+      <hr class="border-gray-700" />
     </div>
 
-    <div class="max-w-6xl mx-auto px-6 flex flex-col items-center justify-center text-center text-red">
-      <a href="mailto:intimaconnect@gmail.com" class="font-machine text-xs transition-colors mb-2 uppercase tracking-wide">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col items-center justify-center text-center">
+      <a href="/cdn-cgi/l/email-protection#b6dfd8c2dfdbd7d5d9d8d8d3d5c2f6d1dbd7dfda98d5d9db" class="font-machine text-xs text-red transition-colors mb-2 uppercase tracking-wide">
         Contact Us
       </a>
-      <p class="font-theory text-xs text-gray-500 italic">
-        Novum Mundum Vetere Pasce
-      </p>
-     <p class="font-theory text-xl text-gray-500">⋆☭𓆩☠︎︎𓆪☭⋆</p>
+      <p class="font-theory text-xs text-gray-500 italic">Novum Mundum Vetere Pasce</p>
+      <p class="font-theory text-xl text-gray-500" aria-hidden="true">⋆☭𓆩☠︎︎𓆪☭⋆</p>
     </div>
   </footer>
 
-  <nav class="md:hidden fixed bottom-6 left-6 right-6 z-50 bg-paper opacity-95 border-2 border-[#CD0000] shadow-red">
+  <!-- ─── MOBILE NAV ───────────────────────────────────────────────── -->
+  <nav aria-label="Mobile navigation"
+       class="md:hidden fixed bottom-6 left-6 right-6 z-50 bg-paper border-2 border-red shadow-red"
+       style="opacity:0.97;">
     <div class="flex justify-between items-center px-6 py-4 font-machine text-black text-xs tracking-widest">
-      <a href="canon/canon.html" class="hover:text-[#CD0000] text-center flex-1">
-        THE CANON
-      </a>
-      <div class="w-[1px] h-4 bg-[#CD0000] mx-2"></div>
-      <a href="reclamation.html" class="hover:text-[#CD0000] text-center flex-1">
-        MUTUAL AID
-      </a>
-      <div class="w-[1px] h-4 bg-[#CD0000] mx-2"></div>
-      <a href="praxis.html" class="hover:text-[#CD0000] text-center flex-1">
-        UNITED FRONT
-      </a>
-    </div>
-  </nav>
-
-  <script>
-    window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
-  </script>
-  <script defer src="/_vercel/speed-insights/script.js"></script>
-
-</body>
-</html>
+      <a href="https://www.intimaconnect.com/theresistancelab/canon/canon.html"            class="hover:text-red text-center flex-1">The Canon</a>
+      <div class="w-px h-4 bg-red mx-2" aria-hidden="true"></div>
+      <a href="https://www.intimaconnect.com/theresistancelab/mutual-aid/reclamation.html" class="hover:text-red text-center flex-1">Mutual Aid</a>
+      <div class="w-px h-4 bg-red mx-2" aria-hidden="true"></div>
+      <a href="https://www.intimaconnect.com/theresistancelab/united-front/praxis.html"    class="hover:text-red text-center flex-1">United Front</a>
