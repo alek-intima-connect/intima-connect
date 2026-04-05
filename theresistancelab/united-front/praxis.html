@@ -74,7 +74,14 @@
 
         .ticker-item:hover { color: var(--accent); }
         .source-tag { color: var(--accent); font-weight: 700; margin-right: 12px; }
-        .crypto-tag { color: #fff; background: var(--accent); padding: 2px 8px; margin-right: 12px; font-size: 0.75rem; }
+
+        /* Source tag color variants by outlet */
+        .source-tag.guardian  { color: #00B2FF; }
+        .source-tag.aljazeera { color: #FFB700; }
+        .source-tag.reuters   { color: #FF7043; }
+        .source-tag.gdelt     { color: #B0FF70; }
+        .source-tag.ap        { color: #E040FB; }
+
         .time-tag { color: #666; font-size: 0.75rem; margin-left: 12px; font-style: italic; }
 
         @keyframes scroll-slow {
@@ -245,6 +252,244 @@
         ::-webkit-scrollbar-track { background: #111; border-left: 1px solid #333; }
         ::-webkit-scrollbar-thumb { background: #CD0000; border: 2px solid #111; }
         ::-webkit-scrollbar-thumb:hover { background: #fff; }
+
+        /* --- NEW VISITOR: ORIENT BAR --- */
+        .orient-bar {
+            background: #fff;
+            border-bottom: var(--border-thick);
+            padding: 0;
+            overflow: hidden;
+        }
+        .orient-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: flex;
+            align-items: stretch;
+            min-height: 50px;
+        }
+        .orient-label {
+            background: var(--accent);
+            color: #fff;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .orient-links {
+            display: flex;
+            align-items: center;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .orient-links::-webkit-scrollbar { display: none; }
+        .orient-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0 22px;
+            height: 100%;
+            border-right: 1px solid #eee;
+            white-space: nowrap;
+            text-decoration: none;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        .orient-link:last-child { border-right: none; }
+        .orient-link:hover { color: var(--accent); background: #fafafa; }
+        .orient-link-dot {
+            width: 6px; height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            flex-shrink: 0;
+            opacity: 0.5;
+            transition: opacity 0.2s;
+        }
+        .orient-link:hover .orient-link-dot { opacity: 1; }
+
+        /* --- NEW VISITOR: ABOUT PANEL --- */
+        .about-panel {
+            background: #fff;
+            border: var(--border-thick);
+            border-top: 6px solid var(--accent);
+            box-shadow: var(--shadow-hard);
+            padding: 35px 40px;
+            margin-bottom: 30px;
+            display: grid;
+            grid-template-columns: 1.4fr 1px 1fr 1px 0.9fr;
+            gap: 35px;
+            align-items: start;
+        }
+        .ap-block { display: flex; flex-direction: column; gap: 8px; }
+        .ap-label {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            font-weight: 700;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            margin-bottom: 4px;
+        }
+        .ap-heading {
+            font-family: 'Anton', sans-serif;
+            font-size: 1.35rem;
+            line-height: 1.15;
+            text-transform: uppercase;
+            margin: 0 0 6px 0;
+        }
+        .ap-body {
+            font-family: 'Merriweather', serif;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin: 0;
+        }
+        .ap-divider {
+            background: #e5e5e5;
+            align-self: stretch;
+        }
+        .ap-pillars {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 4px;
+        }
+        .ap-pillar {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 10px 14px;
+            border: 1px solid #eee;
+            background: #fafafa;
+            transition: border-color 0.2s;
+        }
+        .ap-pillar:hover { border-color: var(--accent); }
+        .ap-pillar-icon {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            min-width: 48px;
+            padding-top: 1px;
+        }
+        .ap-pillar-text {
+            font-family: 'Merriweather', serif;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+        .ap-pillar-text strong {
+            font-family: 'Oswald', sans-serif;
+            color: var(--text-main);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 2px;
+        }
+        .ap-links {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 4px;
+        }
+        .ap-link {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-main);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 9px 14px;
+            border: 2px solid #111;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s;
+        }
+        .ap-link:hover { background: #111; color: #fff; }
+        .ap-link-sub {
+            font-size: 0.6rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            opacity: 0.5;
+        }
+
+        /* --- NEW VISITOR: SECTION DIVIDERS --- */
+        .section-divider {
+            grid-column: 1 / -1;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0 8px;
+        }
+        .section-divider-label {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+        .section-divider-line {
+            flex: 1;
+            height: 1px;
+            background: #ddd;
+        }
+
+        /* --- NEW VISITOR: PRIORITY BADGE --- */
+        .card-new-badge {
+            position: absolute;
+            top: -1px;
+            left: 20px;
+            background: var(--accent);
+            color: #fff;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.58rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            pointer-events: none;
+        }
+
+        body.dark-mode .section-divider-line { background: #333; }
+        body.dark-mode .section-divider-label { color: #666; }
+        body.dark-mode .about-panel { background: #151515; border-color: #E0E0E0; }
+        body.dark-mode .ap-body { color: #888; }
+        body.dark-mode .ap-divider { background: #222; }
+        body.dark-mode .ap-link { border-color: #E0E0E0; color: #E0E0E0; }
+        body.dark-mode .ap-link:hover { background: #E0E0E0; color: #000; }
+        body.dark-mode .ap-pillar { background: #111; border-color: #2a2a2a; }
+        body.dark-mode .ap-label { border-color: #2a2a2a; }
+        body.dark-mode .orient-bar { background: #0a0a0a; border-color: #E0E0E0; }
+        body.dark-mode .orient-link { color: #666; }
+        body.dark-mode .orient-link:hover { background: #111; color: #E0E0E0; }
+        body.dark-mode .orient-links { border-left: 1px solid #222; }
+
+        @media (max-width: 768px) {
+            .about-panel { grid-template-columns: 1fr; gap: 20px; }
+            .ap-divider { height: 1px; align-self: auto; }
+            .orient-link { padding: 0 16px; }
+        }
 
         /* --- SUBSTACK CARD --- */
         .card {
@@ -455,7 +700,7 @@
 			<form action="https://www.mobilize.us/" method="get" target="_blank" style="margin-top: 15px;">
 				<div style="display: flex; flex-wrap: wrap; gap: 8px;">
 					<input type="text" name="address" placeholder="Zip Code" style="
-						flex: 1 1 120px; /* Grows, shrinks, min-width 120px */
+						flex: 1 1 120px;
 						min-width: 0;
 						padding: 10px;
 						box-sizing: border-box; 
@@ -506,10 +751,34 @@
         </div>
     </nav>
 
+    <!-- ▌ NEW VISITOR: ORIENT BAR ▐ -->
+    <div class="orient-bar">
+        <div class="orient-inner">
+            <div class="orient-label">New to The Lab?</div>
+            <div class="orient-links">
+                <a class="orient-link" onclick="scrollToSection('opsec-anchor')">
+                    <div class="orient-link-dot"></div> Digital Security
+                </a>
+                <a class="orient-link" onclick="scrollToSection('medic-anchor')">
+                    <div class="orient-link-dot"></div> Medical Protocols
+                </a>
+                <a class="orient-link" onclick="scrollToSection('community-anchor')">
+                    <div class="orient-link-dot"></div> Community Networks
+                </a>
+                <a class="orient-link" onclick="scrollToSection('intel-anchor')">
+                    <div class="orient-link-dot"></div> Geopolitical Intel
+                </a>
+                <a class="orient-link" href="https://theresistancelab.substack.com/subscribe" target="_blank">
+                    <div class="orient-link-dot"></div> Subscribe
+                </a>
+            </div>
+        </div>
+    </div>
+
     <div class="news-ticker">
         <div class="ticker-wrap">
             <div class="ticker-content" id="ticker-stream">
-                <span class="ticker-item">/// NETWORK SYNC COMPLETE /// ACTIVATING /// STANDBY ///</span>
+                <span class="ticker-item">/// SIGNAL ACQUISITION /// SYNCING FEEDS /// STANDBY ///</span>
             </div>
             <div class="ticker-content" id="ticker-stream-clone"></div>
         </div>
@@ -519,9 +788,73 @@
         <div class="breadcrumb">Resource Dashboard / The Resistance Lab</div>
         <h1 class="glitch-hover">Access. Educate. Liberate.</h1>
         <div class="mission-statement">
-            We are transitioning from the Old World to the New. This is the central repository for tools, maps, and protocols necessary for an effective resistance. 
+            A public archive of vetted tools, research, and resources for people who are done waiting for institutions to act. No ads. No gatekeeping. Knowledge belongs to everyone.
         </div>
     </header>
+
+    <!-- ▌ NEW VISITOR: ABOUT PANEL ▐ -->
+    <div class="container" style="padding-top: 0; padding-bottom: 0;">
+        <div class="about-panel">
+
+            <div class="ap-block">
+                <div class="ap-label">About This Archive</div>
+                <h3 class="ap-heading">What Is<br>The Resistance Lab?</h3>
+                <p class="ap-body">We are a grassroots political education and counter-narrative media organization. This archive is our public-facing repository — a curated collection of tools, manuals, and resources spanning digital privacy, community organizing, geopolitical analysis, and more. Everything here is sourced, vetted, and freely accessible. No institutional filter. No agenda beyond informed action.</p>
+            </div>
+
+            <div class="ap-divider"></div>
+
+            <div class="ap-block">
+                <div class="ap-label">Where To Begin</div>
+                <h3 class="ap-heading">Three Areas<br>That Matter Most</h3>
+                <div class="ap-pillars">
+                    <div class="ap-pillar">
+                        <div class="ap-pillar-icon">Privacy</div>
+                        <div class="ap-pillar-text">
+                            <strong>Digital Security</strong>
+                            Protect your communications, devices, and identity before anything else.
+                        </div>
+                    </div>
+                    <div class="ap-pillar">
+                        <div class="ap-pillar-icon">Medical</div>
+                        <div class="ap-pillar-text">
+                            <strong>Community Health</strong>
+                            Practical first-aid knowledge for demonstrations and direct support work.
+                        </div>
+                    </div>
+                    <div class="ap-pillar">
+                        <div class="ap-pillar-icon">Network</div>
+                        <div class="ap-pillar-text">
+                            <strong>Mutual Aid</strong>
+                            Connect with existing networks, locally and globally.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ap-divider"></div>
+
+            <div class="ap-block">
+                <div class="ap-label">Follow The Work</div>
+                <h3 class="ap-heading">Where We<br>Publish</h3>
+                <div class="ap-links">
+                    <a href="https://instagram.com/theresistancelab_" target="_blank" class="ap-link">
+                        <span>@theresistancelab_</span>
+                        <span class="ap-link-sub">Instagram</span>
+                    </a>
+                    <a href="https://instagram.com/alekwithak_" target="_blank" class="ap-link">
+                        <span>@alekwithak_</span>
+                        <span class="ap-link-sub">Instagram</span>
+                    </a>
+                    <a href="https://theresistancelab.substack.com" target="_blank" class="ap-link">
+                        <span>The Lab Letters</span>
+                        <span class="ap-link-sub">Substack</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
     <div class="container">
         <div class="controls-area">
@@ -560,8 +893,14 @@
 			        <span style="font-family:'Share Tech Mono',monospace; font-size:0.75rem; color:#4A5C2F; letter-spacing:2px;">// 6 ACTIVE THEATERS TRACKED //</span>
 			    </div>
 			</div>
-            <div class="resource-card card-wide" style="border-left: 10px solid #CD0000;">
-                <div class="save-btn" onclick="toggleSave(this, 'riot-med')">★</div>
+            <div class="section-divider" id="medic-anchor">
+                <span class="section-divider-label">Community Health & Medical Resources</span>
+                <div class="section-divider-line"></div>
+            </div>
+
+            <div class="resource-card card-wide" style="border-left: 10px solid #CD0000; position:relative;">
+                <div class="card-new-badge">Core Resource</div>
+                <div class="save-btn" onclick="toggleSave(this, 'riot-med')" style="top:30px;">★</div>
                 <div>
                     <span class="card-tag">Manual / Essential</span>
                     <h2 class="card-title">Riot Medicine</h2>
@@ -596,7 +935,7 @@
             <div class="resource-card card-wide" style="background: #f4f4f4;">
                 <div>
                     <span class="card-tag" style="color: var(--accent);">Restricted Access</span>
-                    <h2 class="card-title">Anna’s Archive</h2>
+                    <h2 class="card-title">Anna's Archive</h2>
                     <p class="card-desc">The largest shadow library in human history. Millions of books and papers. Knowledge is a human right.</p>
                 </div>
                 <a href="https://annas-archive.li/" target="_blank" class="card-link" style="color: var(--accent); border-color: var(--accent);">Enter Library &rarr;</a>
@@ -646,7 +985,7 @@
                 <div>
                     <span class="card-tag">Intel / Urban Warfare</span>
                     <h2 class="card-title">The Battle of Hong Kong</h2>
-                    <p class="card-desc">Major Lester Ferenzi’s analysis of the 2019 protests as a blueprint for 21st-century resistance.</p>
+                    <p class="card-desc">Major Lester Ferenzi's analysis of the 2019 protests as a blueprint for 21st-century resistance.</p>
                 </div>
                 <div style="display:flex; gap:15px; margin-top:15px;">
                     <a href="https://www.armyupress.army.mil/Portals/7/military-review/Archives/English/SO-21/ferenzi-battle-hong-kong.pdf" target="_blank" rel="noopener" class="btn-dl">Download Analysis</a>
@@ -683,6 +1022,110 @@
                 <a href="https://www.activism.net/cypherpunk/" target="_blank" class="card-link">Read Manifesto &rarr;</a>
             </div>
 
+            <!-- ▌ OSINT & REAL-TIME INTELLIGENCE SECTION ▐ -->
+            <div class="section-divider" id="intel-anchor">
+                <span class="section-divider-label">Open Source Intelligence & Real-Time Monitoring</span>
+                <div class="section-divider-line"></div>
+            </div>
+
+            <div class="resource-card card-wide" style="border-top: 8px solid var(--accent);">
+                <div>
+                    <span class="card-tag">OSINT / Research</span>
+                    <h2 class="card-title">OSINT Framework</h2>
+                    <p class="card-desc">The canonical open-source map of every free intelligence-gathering tool organized by investigation type — usernames, emails, domains, geolocation, social media, dark web, and more. Used by investigative journalists and security researchers worldwide. No signup required.</p>
+                </div>
+                <a href="https://osintframework.com/" target="_blank" class="card-link">Open Framework &rarr;</a>
+            </div>
+
+            <div class="resource-card">
+                <div class="save-btn" onclick="toggleSave(this, 'bellingcat-toolkit')">★</div>
+                <div>
+                    <span class="card-tag">OSINT / Journalism</span>
+                    <h2 class="card-title">Bellingcat Investigation Toolkit</h2>
+                    <p class="card-desc">Community-maintained toolkit from Bellingcat — the world's leading open-source investigation collective. Covers satellite imagery, social media verification, transport tracking, archiving, and more. Hundreds of tools, most free.</p>
+                </div>
+                <a href="https://bellingcat.gitbook.io/toolkit" target="_blank" class="card-link">Open Toolkit &rarr;</a>
+            </div>
+
+            <div class="resource-card">
+                <div>
+                    <span class="card-tag">Real-Time / Global</span>
+                    <h2 class="card-title">GDELT Project</h2>
+                    <p class="card-desc">Monitors world broadcast, print, and web news in over 100 languages — updated every 15 minutes. Backed by Google Jigsaw. The closest thing to a free, real-time pulse of the entire planet's media. Historical archives back to 1979.</p>
+                </div>
+                <a href="https://www.gdeltproject.org/" target="_blank" class="card-link">Access Data &rarr;</a>
+            </div>
+
+            <div class="resource-card card-wide" style="border-bottom: 8px solid #1a73e8;">
+                <div class="save-btn" onclick="toggleSave(this, 'acled')">★</div>
+                <div>
+                    <span class="card-tag">Conflict Data / Near-Real-Time</span>
+                    <h2 class="card-title">ACLED — Armed Conflict Location & Event Data</h2>
+                    <p class="card-desc">The gold standard for conflict monitoring. A nonprofit tracking political violence, protests, and demonstrations in every country in near-real-time. Used by the UN, governments, and leading research institutions. Free account required. Data updated weekly.</p>
+                </div>
+                <div style="display:flex; gap:15px; margin-top:15px; flex-wrap:wrap;">
+                    <a href="https://acleddata.com/conflict-data" target="_blank" class="btn-dl">Access Data</a>
+                    <a href="https://acleddata.com/series/acled-conflict-index" target="_blank" class="card-link" style="align-self:center;">Conflict Index &rarr;</a>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <div>
+                    <span class="card-tag">Crisis Mapping / Live</span>
+                    <h2 class="card-title">Liveuamap</h2>
+                    <p class="card-desc">Real-time conflict and crisis event mapping aggregating wire services, Telegram channels, and social media. Covers Ukraine, Middle East, Africa, and other active theaters. Free, updated continuously.</p>
+                </div>
+                <a href="https://liveuamap.com/" target="_blank" class="card-link">View Live Map &rarr;</a>
+            </div>
+
+            <div class="resource-card">
+                <div class="save-btn" onclick="toggleSave(this, 'shodan')">★</div>
+                <div>
+                    <span class="card-tag">OSINT / Network Intelligence</span>
+                    <h2 class="card-title">Shodan</h2>
+                    <p class="card-desc">The search engine for internet-connected devices. Query live servers, cameras, routers, and infrastructure to understand what's publicly exposed on any network. Free tier available — used by security researchers and journalists globally.</p>
+                </div>
+                <a href="https://www.shodan.io/" target="_blank" class="card-link">Search Devices &rarr;</a>
+            </div>
+
+            <div class="resource-card card-wide" style="border-left: 10px solid #FF7043;">
+                <div class="save-btn" onclick="toggleSave(this, 'invid')">★</div>
+                <div>
+                    <span class="card-tag">Verification / Media Integrity</span>
+                    <h2 class="card-title">InVID / WeVerify</h2>
+                    <p class="card-desc">Browser extension developed by EU-funded researchers for verifying photos and videos circulating online. Performs reverse image searches, metadata extraction, keyframe analysis, and geolocation checks — essential for separating real footage from disinformation.</p>
+                </div>
+                <div style="display:flex; gap:15px; margin-top:15px; flex-wrap:wrap;">
+                    <a href="https://www.invid-project.eu/tools-and-services/invid-verification-plugin/" target="_blank" class="btn-dl">Get Extension</a>
+                    <a href="https://weverify.eu/" target="_blank" class="card-link" style="align-self:center;">WeVerify Project &rarr;</a>
+                </div>
+            </div>
+
+            <div class="resource-card card-tool">
+                <div>
+                    <span class="card-tag">Archiving / Evidence Preservation</span>
+                    <h2 class="card-title">Bellingcat Auto-Archiver</h2>
+                    <p class="card-desc">Open-source tool that automatically archives social media content — posts, images, video — before it can be deleted or modified. Has preserved over 150,000 pieces of online evidence. Built for journalists and human rights researchers.</p>
+                </div>
+                <a href="https://github.com/bellingcat/auto-archiver" target="_blank" class="btn-dl">View on GitHub</a>
+            </div>
+
+            <div class="resource-card">
+                <div class="save-btn" onclick="toggleSave(this, 'inteltechniques')">★</div>
+                <div>
+                    <span class="card-tag">OSINT / Personal Research</span>
+                    <h2 class="card-title">IntelTechniques Search Tools</h2>
+                    <p class="card-desc">Michael Bazzell's comprehensive suite of self-hosted search tools for investigating people, phone numbers, emails, usernames, and domains using public data — without leaving traces on commercial platforms. Free.</p>
+                </div>
+                <a href="https://inteltechniques.com/tools/" target="_blank" class="card-link">Open Tools &rarr;</a>
+            </div>
+
+            <!-- ▌ INDEPENDENT JOURNALISM SECTION ▐ -->
+            <div class="section-divider">
+                <span class="section-divider-label">Geopolitical Analysis & Independent Journalism</span>
+                <div class="section-divider-line"></div>
+            </div>
+
             <div class="resource-card card-wide">
                 <div>
                     <span class="card-tag">Journalism / Intel</span>
@@ -690,6 +1133,11 @@
                     <p class="card-desc">Reporting on the "New World" of tech in places like Nepal, Lagos, and Seoul. See the future before it hits the West.</p>
                 </div>
                 <a href="https://restofworld.org" target="_blank" class="card-link">Access Intel &rarr;</a>
+            </div>
+
+            <div class="section-divider" id="community-anchor">
+                <span class="section-divider-label">Mutual Aid & Community Networks</span>
+                <div class="section-divider-line"></div>
             </div>
 
             <div class="resource-card">
@@ -776,8 +1224,14 @@
                 <a href="https://meshtastic.org/" target="_blank" class="card-link">View Docs &rarr;</a>
             </div>
 
-            <div class="resource-card card-tool">
-                <div class="save-btn" onclick="toggleSave(this, 'privacy-guides')">★</div>
+            <div class="section-divider" id="opsec-anchor">
+                <span class="section-divider-label">Digital Privacy & Security</span>
+                <div class="section-divider-line"></div>
+            </div>
+
+            <div class="resource-card card-tool" style="position:relative;">
+                <div class="card-new-badge">Recommended First</div>
+                <div class="save-btn" onclick="toggleSave(this, 'privacy-guides')" style="top:30px;">★</div>
                 <div>
                     <span class="card-tag">Toolkit / OpSec</span>
                     <h2 class="card-title">Privacy Guides</h2>
@@ -865,6 +1319,18 @@
     const filterBtns = document.querySelectorAll('.filter-btn');
     const searchInput = document.getElementById('searchInput');
 
+    // SCROLL TO SECTION (for Start Here banner)
+    function scrollToSection(id) {
+        const el = document.getElementById(id);
+        if (el) {
+            setTimeout(() => {
+                const offset = 100;
+                const top = el.getBoundingClientRect().top + window.scrollY - offset;
+                window.scrollTo({ top, behavior: 'smooth' });
+            }, 50);
+        }
+    }
+
     // 1. POPUP LOGIC
     function toggleExpand() {
         const popup = document.getElementById('strikePopup');
@@ -883,60 +1349,154 @@
         sessionStorage.setItem('strikePopupClosed', 'true');
     }
 
-    // 2. TICKER LOGIC
-    async function updateResistanceTicker() {
-        const stream = document.getElementById('ticker-stream');
-        const clone = document.getElementById('ticker-stream-clone');
-        // SECURITY NOTE: Move key to backend for production
-        const newsUrl = 'https://newsapi.org/v2/top-headlines?category=technology&language=en&apiKey=a83cbaa7e4d14e18bb80c81d6f51e68a';
-        const proxy = 'https://api.allorigins.win/get?url=' + encodeURIComponent(newsUrl);
+    // =====================================================================
+    // 2. TICKER LOGIC — MULTI-SOURCE GEOPOLITICAL FEED
+    // =====================================================================
 
-        try {
-            const cryptoRes = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd');
-            const cryptoData = await cryptoRes.json();
-            const btc = Math.floor(cryptoData.bitcoin.usd).toLocaleString();
-            const eth = Math.floor(cryptoData.ethereum.usd).toLocaleString();
-
-            const response = await fetch(proxy);
-            const json = await response.json();
-            const newsData = JSON.parse(json.contents);
-
-            let contentHtml = `
-                <a href="https://pro.kraken.com/app/trade/btcusd" target="_blank" class="ticker-item"><span class="crypto-tag">BTC</span> $${btc}</a>
-                <a href="https://pro.kraken.com/app/trade/ethusd" target="_blank" class="ticker-item"><span class="crypto-tag">ETH</span> $${eth}</a>
-            `;
-
-            if (newsData.articles) {
-                contentHtml += newsData.articles.slice(0, 10).map(article => {
-                    const time = formatTime(article.publishedAt);
-                    const source = article.source.name.toUpperCase();
-                    const cleanTitle = article.title.split(' - ')[0].trim().toUpperCase();
-                    return `<a href="${article.url}" target="_blank" class="ticker-item">
-                                <span class="source-tag">[${source}]</span> 
-                                ${cleanTitle} 
-                                <span class="time-tag">T-${time}</span>
-                            </a>`;
-                }).join('');
+    // Source configuration — each entry defines a feed to pull from
+    const TICKER_SOURCES = [
+        {
+            // The Guardian World News — free, CORS-safe via proxy, no key needed
+            id: 'guardian',
+            label: 'THE GUARDIAN',
+            cssClass: 'guardian',
+            url: 'https://content.guardianapis.com/search?section=world&show-fields=trailText&order-by=newest&page-size=10&api-key=test',
+            parse: (data) => {
+                if (!data.response || !data.response.results) return [];
+                return data.response.results.map(item => ({
+                    title: item.webTitle.toUpperCase(),
+                    url: item.webUrl,
+                    time: item.webPublicationDate
+                }));
             }
+        },
+        {
+            // Al Jazeera English RSS via rss2json (free, 10k req/day)
+            id: 'aljazeera',
+            label: 'AL JAZEERA',
+            cssClass: 'aljazeera',
+            url: 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.aljazeera.com%2Fxml%2Frss%2Fall.xml&count=10',
+            parse: (data) => {
+                if (!data.items) return [];
+                return data.items.map(item => ({
+                    title: item.title.toUpperCase(),
+                    url: item.link,
+                    time: item.pubDate
+                }));
+            }
+        },
+        {
+            // Reuters World RSS via rss2json
+            id: 'reuters',
+            label: 'REUTERS',
+            cssClass: 'reuters',
+            url: 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Ffeeds.reuters.com%2Freuters%2FworldNews&count=10',
+            parse: (data) => {
+                if (!data.items) return [];
+                return data.items.map(item => ({
+                    title: item.title.toUpperCase(),
+                    url: item.link,
+                    time: item.pubDate
+                }));
+            }
+        },
+        {
+            // NewsAPI world headlines (your existing key, changed to world category)
+            id: 'newsapi',
+            label: 'AP / WIRE',
+            cssClass: 'ap',
+            // Route through allorigins proxy to avoid CORS
+            url: 'https://api.allorigins.win/get?url=' + encodeURIComponent(
+                'https://newsapi.org/v2/top-headlines?category=general&language=en&pageSize=10&apiKey=a83cbaa7e4d14e18bb80c81d6f51e68a'
+            ),
+            proxy: true, // flag: unwrap allorigins envelope
+            parse: (data) => {
+                // allorigins wraps response in { contents: "..." }
+                const inner = typeof data.contents === 'string' ? JSON.parse(data.contents) : data;
+                if (!inner.articles) return [];
+                return inner.articles.map(a => ({
+                    title: a.title.split(' - ')[0].trim().toUpperCase(),
+                    url: a.url,
+                    time: a.publishedAt
+                }));
+            }
+        }
+    ];
 
-            stream.innerHTML = contentHtml;
-            clone.innerHTML = contentHtml;
-        } catch (error) {
-            const err = `<div class="ticker-item">/// DATA LINK UNSTABLE /// RE-ROUTING SIGNAL... ///</div>`;
-            stream.innerHTML = err;
-            clone.innerHTML = err;
+    // Fetch a single source and return normalised article objects
+    async function fetchSource(source) {
+        try {
+            const res = await fetch(source.url, { signal: AbortSignal.timeout(8000) });
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            const data = await res.json();
+            return source.parse(data).map(item => ({ ...item, sourceId: source.id, label: source.label, cssClass: source.cssClass }));
+        } catch (e) {
+            console.warn(`[Ticker] ${source.label} fetch failed:`, e.message);
+            return [];
         }
     }
 
-    function formatTime(isoString) {
-        const date = new Date(isoString);
-        const now = new Date();
-        const diffInMinutes = Math.floor((now - date) / 60000);
-        if (diffInMinutes < 60) return `${diffInMinutes}M`;
-        return `${Math.floor(diffInMinutes / 60)}H`;
+    // Interleave articles from multiple sources so no single outlet dominates
+    function interleaveArticles(groups) {
+        const result = [];
+        const maxLen = Math.max(...groups.map(g => g.length));
+        for (let i = 0; i < maxLen; i++) {
+            groups.forEach(group => {
+                if (group[i]) result.push(group[i]);
+            });
+        }
+        return result;
     }
 
+    function formatTime(isoString) {
+        if (!isoString) return '?H';
+        const date = new Date(isoString);
+        if (isNaN(date)) return '?H';
+        const diffMin = Math.floor((Date.now() - date) / 60000);
+        if (diffMin < 1)  return 'LIVE';
+        if (diffMin < 60) return `${diffMin}M`;
+        return `${Math.floor(diffMin / 60)}H`;
+    }
+
+    function buildTickerHTML(articles) {
+        if (!articles.length) {
+            return `<span class="ticker-item">/// DATA LINK UNSTABLE /// RE-ROUTING SIGNAL... ///</span>`;
+        }
+
+        // Opening separator
+        let html = `<span class="ticker-item" style="color:#CD0000; letter-spacing:4px;">▌ RESISTANCE LAB INTEL FEED ▐</span>`;
+
+        articles.forEach(article => {
+            const time = formatTime(article.time);
+            html += `<a href="${article.url}" target="_blank" rel="noopener" class="ticker-item">
+                <span class="source-tag ${article.cssClass}">[${article.label}]</span>
+                ${article.title}
+                <span class="time-tag">T-${time}</span>
+            </a>`;
+        });
+
+        return html;
+    }
+
+    async function updateResistanceTicker() {
+        const stream = document.getElementById('ticker-stream');
+        const clone  = document.getElementById('ticker-stream-clone');
+
+        // Fetch all sources in parallel
+        const results = await Promise.all(TICKER_SOURCES.map(fetchSource));
+
+        // Filter out empty results and interleave
+        const filled = results.filter(r => r.length > 0);
+        const articles = filled.length > 0 ? interleaveArticles(filled) : [];
+
+        const html = buildTickerHTML(articles);
+        stream.innerHTML = html;
+        clone.innerHTML  = html;
+    }
+
+    // =====================================================================
     // 3. THEME & UI
+    // =====================================================================
     function toggleTheme() {
         const isDark = document.body.classList.toggle('dark-mode');
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
@@ -982,17 +1542,18 @@
             document.body.classList.add('dark-mode');
             document.getElementById('themeIcon').innerText = "☀";
         }
+
+        // Fire ticker immediately, then refresh every 10 minutes
         updateResistanceTicker();
         setInterval(updateResistanceTicker, 600000);
     });
 
     // Event Listeners
-    if(searchInput) {
+    if (searchInput) {
         searchInput.addEventListener('keyup', filterResources);
-        // Mobile Scroll Fix
         searchInput.addEventListener('focus', () => {
             setTimeout(() => {
-                searchInput.scrollIntoView({behavior: 'smooth', block: 'start'});
+                searchInput.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }, 300);
         });
     }
