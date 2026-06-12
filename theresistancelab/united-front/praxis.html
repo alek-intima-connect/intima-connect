@@ -4,7 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resource Dashboard | The Resistance Lab</title>
-    
+    <meta name="description" content="A free, curated archive of tools and resources: digital privacy, street medic protocols, legal aid, mutual aid, food and housing assistance, labor organizing, OSINT, and open education.">
+    <meta name="theme-color" content="#111111">
+
+    <!-- Open Graph / link previews -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Resource Dashboard | The Resistance Lab">
+    <meta property="og:description" content="One archive. Every resource: privacy, medical, legal aid, food & housing, labor power, OSINT, and free education. No ads. No gatekeeping.">
+    <meta name="twitter:card" content="summary">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
@@ -433,12 +441,18 @@
         }
 
         /* --- NEW VISITOR: SECTION DIVIDERS --- */
+        html { scroll-behavior: smooth; }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .ticker-content { animation: none; }
+        }
         .section-divider {
             grid-column: 1 / -1;
             display: flex;
             align-items: center;
             gap: 15px;
             margin: 20px 0 8px;
+            scroll-margin-top: 130px; /* clears sticky nav + ticker when jumping to #anchors */
         }
         .section-divider-label {
             font-family: 'Oswald', sans-serif;
@@ -658,6 +672,68 @@
             .footer-links { justify-content: center; }
         }
 
+        /* --- SEARCH FEEDBACK & EMPTY STATE --- */
+        .results-meta {
+            grid-column: 1 / -1;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            display: none;
+        }
+        .results-meta.visible { display: block; }
+        .no-results {
+            grid-column: 1 / -1;
+            display: none;
+            border: var(--border-thick);
+            background: #fff;
+            box-shadow: var(--shadow-hard);
+            padding: 50px 30px;
+            text-align: center;
+        }
+        .no-results.visible { display: block; }
+        .no-results-title {
+            font-family: 'Anton', sans-serif;
+            font-size: 2rem;
+            text-transform: uppercase;
+            margin: 0 0 8px 0;
+        }
+        .no-results-sub {
+            font-family: 'Merriweather', serif;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+        .no-results-clear {
+            display: inline-block;
+            margin-top: 20px;
+            background: #111; color: #fff;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1px; padding: 10px 20px;
+            border: none; cursor: pointer;
+        }
+        .no-results-clear:hover { background: var(--accent); }
+        body.dark-mode .no-results { background: #151515; }
+
+        /* --- BACK TO TOP --- */
+        .back-to-top {
+            position: fixed; bottom: 20px; left: 20px;
+            width: 52px; height: 52px;
+            background: #111; color: #fff;
+            border: 3px solid #111;
+            font-family: 'Anton', sans-serif; font-size: 1.4rem;
+            cursor: pointer; z-index: 9998;
+            box-shadow: 5px 5px 0 var(--accent);
+            opacity: 0; pointer-events: none;
+            transition: opacity 0.25s, transform 0.2s;
+        }
+        .back-to-top.visible { opacity: 1; pointer-events: auto; }
+        .back-to-top:hover { transform: translate(-2px, -2px); background: var(--accent); }
+        body.dark-mode .back-to-top { background: #E0E0E0; color: #000; border-color: #E0E0E0; }
+
         /* --- DARK MODE --- */
         body.dark-mode {
             --bg-paper: #0a0a0a; --text-main: #E0E0E0; --text-muted: #888888;
@@ -756,17 +832,32 @@
         <div class="orient-inner">
             <div class="orient-label">New to The Lab?</div>
             <div class="orient-links">
-                <a class="orient-link" onclick="scrollToSection('opsec-anchor')">
+                <a class="orient-link" href="#opsec-anchor">
                     <div class="orient-link-dot"></div> Digital Security
                 </a>
-                <a class="orient-link" onclick="scrollToSection('medic-anchor')">
-                    <div class="orient-link-dot"></div> Medical Protocols
+                <a class="orient-link" href="#medic-anchor">
+                    <div class="orient-link-dot"></div> Medical
                 </a>
-                <a class="orient-link" onclick="scrollToSection('community-anchor')">
-                    <div class="orient-link-dot"></div> Community Networks
+                <a class="orient-link" href="#legal-anchor">
+                    <div class="orient-link-dot"></div> Legal Aid
                 </a>
-                <a class="orient-link" onclick="scrollToSection('intel-anchor')">
-                    <div class="orient-link-dot"></div> Geopolitical Intel
+                <a class="orient-link" href="#aid-anchor">
+                    <div class="orient-link-dot"></div> Food &amp; Housing
+                </a>
+                <a class="orient-link" href="#labor-anchor">
+                    <div class="orient-link-dot"></div> Labor &amp; Tenants
+                </a>
+                <a class="orient-link" href="#community-anchor">
+                    <div class="orient-link-dot"></div> Community
+                </a>
+                <a class="orient-link" href="#education-anchor">
+                    <div class="orient-link-dot"></div> Free Education
+                </a>
+                <a class="orient-link" href="#intel-anchor">
+                    <div class="orient-link-dot"></div> Intel
+                </a>
+                <a class="orient-link" href="#github-anchor">
+                    <div class="orient-link-dot"></div> Open Source
                 </a>
                 <a class="orient-link" href="https://theresistancelab.substack.com/subscribe" target="_blank">
                     <div class="orient-link-dot"></div> Subscribe
@@ -864,9 +955,13 @@
                 <button class="filter-btn" data-filter="Intel">Intel</button>
                 <button class="filter-btn" data-filter="Hardware">Hardware</button>
                 <button class="filter-btn" data-filter="Health">Bio/Health</button>
+                <button class="filter-btn" data-filter="Legal">Legal</button>
+                <button class="filter-btn" data-filter="Aid">Direct Aid</button>
+                <button class="filter-btn" data-filter="Labor">Labor</button>
+                <button class="filter-btn" data-filter="Education">Education</button>
             </div>
             <div class="search-bar">
-                <input type="text" class="search-input" id="searchInput" placeholder="SEARCH DATABASE...">
+                <input type="text" class="search-input" id="searchInput" placeholder="SEARCH DATABASE..." aria-label="Search resources">
             </div>
             <button class="filter-btn" id="themeToggle" onclick="toggleTheme()" style="display: flex; align-items: center; gap: 8px;">
                 <span id="themeIcon">☾</span> 
@@ -874,9 +969,17 @@
             </button>
         </div>
         
-<link href='https://actionnetwork.org/css/style-embed-v3.css' rel='stylesheet' type='text/css' /><script src='https://actionnetwork.org/widgets/v6/form/open-letter-veterans-say-no-war-on-iran?format=js&source=widget&referrer=[object Object]'></script><div id='can-form-area-open-letter-veterans-say-no-war-on-iran' style='width: 100%'></div>
+<link href='https://actionnetwork.org/css/style-embed-v3.css' rel='stylesheet' type='text/css' /><script src='https://actionnetwork.org/widgets/v6/form/open-letter-veterans-say-no-war-on-iran?format=js&source=widget'></script><div id='can-form-area-open-letter-veterans-say-no-war-on-iran' style='width: 100%'></div>
         
         <div class="resource-grid">
+
+            <div class="results-meta" id="resultsMeta" aria-live="polite"></div>
+
+            <div class="no-results" id="noResults">
+                <h2 class="no-results-title">// No Match In Archive //</h2>
+                <p class="no-results-sub">Nothing in the database matches that query and filter. Try fewer words, or submit the resource below for verification.</p>
+                <button class="no-results-clear" onclick="clearFilters()">Reset Search</button>
+            </div>
 
 			<div class="resource-card card-wide" style="background: #0d0e0b; color: #d8ddd0; border: 3px solid #4A5C2F; border-left: 14px solid #4A5C2F;">
 			    <div class="save-btn" style="color:#4A5C2F;" onclick="toggleSave(this, 'front-line')">★</div>
@@ -1003,6 +1106,16 @@
                 <a href="https://fireweedcollective.org/crisis-toolkit/" target="_blank" class="card-link">Access Care &rarr;</a>
             </div>
 
+            <div class="resource-card" data-category="Health">
+                <div class="save-btn" onclick="toggleSave(this, '988-lifeline')">★</div>
+                <div>
+                    <span class="card-tag">Health / Crisis Line</span>
+                    <h2 class="card-title">988 Lifeline</h2>
+                    <p class="card-desc">Call or text 988 anywhere in the US. Free, 24/7 support for anyone in emotional distress or crisis. Chat also available online. Burnout is an occupational hazard of this work — don't carry it alone.</p>
+                </div>
+                <a href="https://988lifeline.org/" target="_blank" class="card-link">Get Support &rarr;</a>
+            </div>
+
             <div class="resource-card">
                 <div>
                     <span class="card-tag">Protocol / Medic</span>
@@ -1020,6 +1133,55 @@
                     <p class="card-desc">Financial sovereignty via Monero and the Cypherpunk ethos. Learn to operate outside the fiat cage.</p>
                 </div>
                 <a href="https://www.activism.net/cypherpunk/" target="_blank" class="card-link">Read Manifesto &rarr;</a>
+            </div>
+
+            <!-- ▌ LEGAL AID & KNOW YOUR RIGHTS SECTION ▐ -->
+            <div class="section-divider" id="legal-anchor">
+                <span class="section-divider-label">Legal Aid & Know Your Rights</span>
+                <div class="section-divider-line"></div>
+            </div>
+
+            <div class="resource-card card-wide" style="border-left: 10px solid var(--accent); position:relative;">
+                <div class="card-new-badge">Core Resource</div>
+                <div class="save-btn" onclick="toggleSave(this, 'nlg')" style="top:30px;">★</div>
+                <div>
+                    <span class="card-tag">Legal / Mass Defense</span>
+                    <h2 class="card-title">National Lawyers Guild</h2>
+                    <p class="card-desc">Legal support for movements since 1937. Legal observers in green hats, mass defense coordination, and chapter hotlines. Write your local NLG number on your arm before any action — know who to call before you need them.</p>
+                </div>
+                <div style="display:flex; gap:15px; margin-top:15px; flex-wrap:wrap;">
+                    <a href="https://www.nlg.org/massdefense/" target="_blank" class="btn-dl">Mass Defense</a>
+                    <a href="https://www.nlg.org/know-your-rights/" target="_blank" class="card-link" style="align-self:center;">Know Your Rights &rarr;</a>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <div class="save-btn" onclick="toggleSave(this, 'aclu-kyr')">★</div>
+                <div>
+                    <span class="card-tag">Legal / Rights</span>
+                    <h2 class="card-title">ACLU: Know Your Rights</h2>
+                    <p class="card-desc">Plain-language breakdowns of your constitutional rights: protests, police stops, searches, photography in public, immigration enforcement, and more. Available in multiple languages.</p>
+                </div>
+                <a href="https://www.aclu.org/know-your-rights" target="_blank" class="card-link">Read Rights &rarr;</a>
+            </div>
+
+            <div class="resource-card">
+                <div>
+                    <span class="card-tag">Legal / Civil Aid</span>
+                    <h2 class="card-title">LawHelp.org</h2>
+                    <p class="card-desc">Find free civil legal aid in your state — housing, benefits, family law, debt, immigration. Run by Pro Bono Net. The system charges for justice; this is the workaround.</p>
+                </div>
+                <a href="https://www.lawhelp.org/" target="_blank" class="card-link">Find Legal Aid &rarr;</a>
+            </div>
+
+            <div class="resource-card card-tool">
+                <div class="save-btn" onclick="toggleSave(this, 'red-cards')">★</div>
+                <div>
+                    <span class="card-tag">Legal / Immigration</span>
+                    <h2 class="card-title">ILRC Red Cards</h2>
+                    <p class="card-desc">Printable know-your-rights cards from the Immigrant Legal Resource Center, in 17+ languages. Assert your rights during an encounter without saying a word. Print stacks. Distribute everywhere.</p>
+                </div>
+                <a href="https://www.ilrc.org/red-cards" target="_blank" class="btn-dl">Print Cards</a>
             </div>
 
             <!-- ▌ OSINT & REAL-TIME INTELLIGENCE SECTION ▐ -->
@@ -1135,6 +1297,123 @@
                 <a href="https://restofworld.org" target="_blank" class="card-link">Access Intel &rarr;</a>
             </div>
 
+            <div class="resource-card">
+                <div class="save-btn" onclick="toggleSave(this, 'fpf')">★</div>
+                <div>
+                    <span class="card-tag">Journalism / Press Freedom</span>
+                    <h2 class="card-title">Freedom of the Press Foundation</h2>
+                    <p class="card-desc">Digital security training and tools for journalists and their sources — including SecureDrop, the open-source whistleblower submission system used by major newsrooms worldwide.</p>
+                </div>
+                <a href="https://freedom.press/" target="_blank" class="card-link">Access Tools &rarr;</a>
+            </div>
+
+            <!-- ▌ FOOD, HOUSING & DIRECT AID SECTION ▐ -->
+            <div class="section-divider" id="aid-anchor">
+                <span class="section-divider-label">Food, Housing & Direct Aid</span>
+                <div class="section-divider-line"></div>
+            </div>
+
+            <div class="resource-card card-wide" style="border-left: 10px solid var(--accent); position:relative;">
+                <div class="card-new-badge">Core Resource</div>
+                <div class="save-btn" onclick="toggleSave(this, '211')" style="top:30px;">★</div>
+                <div>
+                    <span class="card-tag">Aid / Everything Line</span>
+                    <h2 class="card-title">211: One Number, Every Service</h2>
+                    <p class="card-desc">Dial 211 or search online. United Way's nationwide directory connecting people to food, housing, utility assistance, healthcare, and crisis support. Free, confidential, 24/7, in 180+ languages. The single most efficient entry point to aid in the US.</p>
+                </div>
+                <div style="display:flex; gap:15px; margin-top:15px; flex-wrap:wrap;">
+                    <a href="https://www.211.org/" target="_blank" class="btn-dl">Search 211</a>
+                    <span class="card-link" style="align-self:center; border:none; cursor:default;">Or just dial 2-1-1</span>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <div class="save-btn" onclick="toggleSave(this, 'feeding-america')">★</div>
+                <div>
+                    <span class="card-tag">Aid / Food</span>
+                    <h2 class="card-title">Feeding America</h2>
+                    <p class="card-desc">Locate your nearest food bank from a network of 200 banks and 60,000 pantries and meal programs. No one in your network should be skipping meals while this exists.</p>
+                </div>
+                <a href="https://www.feedingamerica.org/find-your-local-foodbank" target="_blank" class="card-link">Find Food &rarr;</a>
+            </div>
+
+            <div class="resource-card">
+                <div>
+                    <span class="card-tag">Aid / All Programs</span>
+                    <h2 class="card-title">FindHelp.org</h2>
+                    <p class="card-desc">Search 500,000+ free and reduced-cost programs by zip code — food, housing, transit, money, legal, care, and work. The largest social-services index in the country.</p>
+                </div>
+                <a href="https://www.findhelp.org/" target="_blank" class="card-link">Search By Zip &rarr;</a>
+            </div>
+
+            <div class="resource-card card-tool">
+                <div class="save-btn" onclick="toggleSave(this, 'madr')">★</div>
+                <div>
+                    <span class="card-tag">Aid / Disaster Relief</span>
+                    <h2 class="card-title">Mutual Aid Disaster Relief</h2>
+                    <p class="card-desc">Grassroots disaster relief organized on solidarity, not charity. Trainings, deployment guides, and a national network that shows up when FEMA doesn't.</p>
+                </div>
+                <a href="https://mutualaiddisasterrelief.org/" target="_blank" class="btn-dl">Join Network</a>
+            </div>
+
+            <div class="resource-card">
+                <div>
+                    <span class="card-tag">Aid / Housing</span>
+                    <h2 class="card-title">NLIHC Housing Resources</h2>
+                    <p class="card-desc">The National Low Income Housing Coalition's state-by-state guides to rental assistance, eviction protections, and tenant resources. Research and policy ammunition included.</p>
+                </div>
+                <a href="https://nlihc.org/rental-assistance" target="_blank" class="card-link">Find Assistance &rarr;</a>
+            </div>
+
+            <!-- ▌ LABOR & TENANT POWER SECTION ▐ -->
+            <div class="section-divider" id="labor-anchor">
+                <span class="section-divider-label">Labor & Tenant Power</span>
+                <div class="section-divider-line"></div>
+            </div>
+
+            <div class="resource-card card-wide" style="border-left: 10px solid var(--accent); position:relative;">
+                <div class="card-new-badge">Core Resource</div>
+                <div class="save-btn" onclick="toggleSave(this, 'ewoc')" style="top:30px;">★</div>
+                <div>
+                    <span class="card-tag">Labor / Organize Your Workplace</span>
+                    <h2 class="card-title">EWOC: Emergency Workplace Organizing</h2>
+                    <p class="card-desc">Free training and one-on-one support to organize your own workplace, from first conversation to first contract. A joint project of UE and DSA. You don't need permission to build power where you work.</p>
+                </div>
+                <div style="display:flex; gap:15px; margin-top:15px; flex-wrap:wrap;">
+                    <a href="https://workerorganizing.org/" target="_blank" class="btn-dl">Start Organizing</a>
+                    <a href="https://workerorganizing.org/resources/" target="_blank" class="card-link" style="align-self:center;">Training Library &rarr;</a>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <div class="save-btn" onclick="toggleSave(this, 'labor-notes')">★</div>
+                <div>
+                    <span class="card-tag">Labor / Journal</span>
+                    <h2 class="card-title">Labor Notes</h2>
+                    <p class="card-desc">The movement's trade journal since 1979. Strike coverage, organizing tactics, and the "Troublemaker's Handbook" tradition. Where rank-and-file workers compare notes.</p>
+                </div>
+                <a href="https://labornotes.org/" target="_blank" class="card-link">Read Tactics &rarr;</a>
+            </div>
+
+            <div class="resource-card">
+                <div>
+                    <span class="card-tag">Labor / Federal Rights</span>
+                    <h2 class="card-title">NLRB: Your Rights</h2>
+                    <p class="card-desc">Your federally protected right to organize, discuss wages, and act collectively — with or without a union. Straight from the National Labor Relations Board. Retaliation is illegal; documentation is power.</p>
+                </div>
+                <a href="https://www.nlrb.gov/about-nlrb/rights-we-protect/your-rights" target="_blank" class="card-link">Know The Law &rarr;</a>
+            </div>
+
+            <div class="resource-card card-tool">
+                <div class="save-btn" onclick="toggleSave(this, 'atun')">★</div>
+                <div>
+                    <span class="card-tag">Labor / Tenants</span>
+                    <h2 class="card-title">Autonomous Tenants Union Network</h2>
+                    <p class="card-desc">A directory of independent tenant unions across North America. Landlords are organized — tenants should be too. Find a union in your city or get help starting one.</p>
+                </div>
+                <a href="https://atun-rsia.org/" target="_blank" class="btn-dl">Find Your Union</a>
+            </div>
+
             <div class="section-divider" id="community-anchor">
                 <span class="section-divider-label">Mutual Aid & Community Networks</span>
                 <div class="section-divider-line"></div>
@@ -1175,7 +1454,7 @@
                     <h2 class="card-title">Tails OS</h2>
                     <p class="card-desc">The Amnesic Incognito Live System. Runs from USB. Leaves no trace.</p>
                 </div>
-                <a href="https://tails.boum.org/" target="_blank" class="card-link">Download IMG &rarr;</a>
+                <a href="https://tails.net/" target="_blank" class="card-link">Download IMG &rarr;</a>
             </div>
 
             <div class="resource-card card-tool">
@@ -1224,6 +1503,44 @@
                 <a href="https://meshtastic.org/" target="_blank" class="card-link">View Docs &rarr;</a>
             </div>
 
+            <!-- ▌ FREE EDUCATION & OPEN KNOWLEDGE SECTION ▐ -->
+            <div class="section-divider" id="education-anchor">
+                <span class="section-divider-label">Free Education & Open Knowledge</span>
+                <div class="section-divider-line"></div>
+            </div>
+
+            <div class="resource-card card-wide" style="border-top: 8px solid var(--accent);">
+                <div class="save-btn" onclick="toggleSave(this, 'internet-archive')">★</div>
+                <div>
+                    <span class="card-tag">Education / The Library of Everything</span>
+                    <h2 class="card-title">Internet Archive</h2>
+                    <p class="card-desc">900+ billion archived web pages via the Wayback Machine, millions of free books through Open Library, plus software, audio, and film. The closest thing humanity has to a permanent public memory.</p>
+                </div>
+                <div style="display:flex; gap:15px; margin-top:15px; flex-wrap:wrap;">
+                    <a href="https://archive.org/" target="_blank" class="btn-dl">Enter Archive</a>
+                    <a href="https://openlibrary.org/" target="_blank" class="card-link" style="align-self:center;">Open Library &rarr;</a>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <div class="save-btn" onclick="toggleSave(this, 'mit-ocw')">★</div>
+                <div>
+                    <span class="card-tag">Education / University</span>
+                    <h2 class="card-title">MIT OpenCourseWare</h2>
+                    <p class="card-desc">2,500+ full MIT courses — lectures, notes, problem sets. Free. No enrollment, no tuition, no gatekeeper. An elite education was never supposed to be scarce.</p>
+                </div>
+                <a href="https://ocw.mit.edu/" target="_blank" class="card-link">Browse Courses &rarr;</a>
+            </div>
+
+            <div class="resource-card">
+                <div>
+                    <span class="card-tag">Education / Public Domain</span>
+                    <h2 class="card-title">Project Gutenberg</h2>
+                    <p class="card-desc">75,000+ public-domain books, free in every format. The original digital library, running since 1971 on volunteers and principle.</p>
+                </div>
+                <a href="https://www.gutenberg.org/" target="_blank" class="card-link">Read Free &rarr;</a>
+            </div>
+
             <div class="section-divider" id="opsec-anchor">
                 <span class="section-divider-label">Digital Privacy & Security</span>
                 <div class="section-divider-line"></div>
@@ -1239,6 +1556,149 @@
                     <p class="card-desc">The industry standard for restoring your online privacy. Hardening your OS.</p>
                 </div>
                 <a href="https://www.privacyguides.org/en/" target="_blank" class="btn-dl">Access Protocols</a>
+            </div>
+
+            <div class="resource-card">
+                <div class="save-btn" onclick="toggleSave(this, 'eff-ssd')">★</div>
+                <div>
+                    <span class="card-tag">Toolkit / OpSec</span>
+                    <h2 class="card-title">EFF: Surveillance Self-Defense</h2>
+                    <p class="card-desc">Threat-model-based guides from the Electronic Frontier Foundation: securing devices, attending protests, crossing borders, protecting sources. Playlists tailored by role — activist, journalist, everyone.</p>
+                </div>
+                <a href="https://ssd.eff.org/" target="_blank" class="card-link">Build Your Model &rarr;</a>
+            </div>
+
+            <div class="resource-card card-tool">
+                <div class="save-btn" onclick="toggleSave(this, 'signal')">★</div>
+                <div>
+                    <span class="card-tag">Toolkit / Comms</span>
+                    <h2 class="card-title">Signal</h2>
+                    <p class="card-desc">End-to-end encrypted messaging and calls, run by a nonprofit, open source, no metadata harvesting. The baseline. If your group chat isn't here yet, that's task one.</p>
+                </div>
+                <a href="https://signal.org/" target="_blank" class="btn-dl">Get Signal</a>
+            </div>
+
+            <!-- ▌ OPEN SOURCE ARSENAL — VERIFIED ON GITHUB ▐ -->
+            <div class="section-divider" id="github-anchor">
+                <span class="section-divider-label">Open Source Arsenal — Verified Active On GitHub</span>
+                <div class="section-divider-line"></div>
+            </div>
+
+            <div class="resource-card card-wide" style="border-left: 10px solid var(--accent); position:relative;">
+                <div class="card-new-badge">New Intake</div>
+                <div class="save-btn" onclick="toggleSave(this, 'worldmonitor')" style="top:30px;">★</div>
+                <div>
+                    <span class="card-tag">Intel / Live Dashboard</span>
+                    <h2 class="card-title">World Monitor</h2>
+                    <p class="card-desc">Open-source real-time global intelligence dashboard — AI-assisted news aggregation, geopolitical monitoring, and infrastructure tracking on one screen. 56K+ stars and under daily active development. Run the hosted app or self-host the whole thing.</p>
+                </div>
+                <div style="display:flex; gap:15px; margin-top:15px; flex-wrap:wrap;">
+                    <a href="https://worldmonitor.app" target="_blank" class="btn-dl">Open Dashboard</a>
+                    <a href="https://github.com/koala73/worldmonitor" target="_blank" class="card-link" style="align-self:center;">Source &rarr;</a>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <div class="save-btn" onclick="toggleSave(this, 'archivebox')">★</div>
+                <div>
+                    <span class="card-tag">Toolkit / Archiving</span>
+                    <h2 class="card-title">ArchiveBox</h2>
+                    <p class="card-desc">Self-hosted web archiving (27K+ stars). Feed it URLs, bookmarks, or browser history; it saves HTML, screenshots, PDFs, and media locally — forever. The personal counterpart to the Bellingcat Auto-Archiver above.</p>
+                </div>
+                <a href="https://archivebox.io" target="_blank" class="card-link">Self-Host It &rarr;</a>
+            </div>
+
+            <div class="resource-card">
+                <div class="save-btn" onclick="toggleSave(this, 'searxng')">★</div>
+                <div>
+                    <span class="card-tag">Toolkit / Search</span>
+                    <h2 class="card-title">SearXNG</h2>
+                    <p class="card-desc">A free metasearch engine (31K+ stars) that aggregates results from dozens of services without profiling you. Use a public instance or run your own. Search without being the product.</p>
+                </div>
+                <a href="https://docs.searxng.org" target="_blank" class="card-link">Pick An Instance &rarr;</a>
+            </div>
+
+            <div class="resource-card card-tool">
+                <div class="save-btn" onclick="toggleSave(this, 'onionshare')">★</div>
+                <div>
+                    <span class="card-tag">Toolkit / OpSec</span>
+                    <h2 class="card-title">OnionShare</h2>
+                    <p class="card-desc">Securely and anonymously share files of any size, host sites, and chat over the Tor network. No servers, no accounts, no middleman. From the team around the Tor ecosystem.</p>
+                </div>
+                <a href="https://onionshare.org/" target="_blank" class="btn-dl">Get OnionShare</a>
+            </div>
+
+            <div class="resource-card">
+                <div class="save-btn" onclick="toggleSave(this, 'simplex')">★</div>
+                <div>
+                    <span class="card-tag">Toolkit / Comms</span>
+                    <h2 class="card-title">SimpleX Chat</h2>
+                    <p class="card-desc">The first messaging network with no user identifiers of any kind — not even random ones (11K+ stars). When even a phone number is too much metadata, this is the next rung up from Signal.</p>
+                </div>
+                <a href="https://simplex.chat" target="_blank" class="card-link">Go Identifier-Free &rarr;</a>
+            </div>
+
+            <div class="resource-card">
+                <div class="save-btn" onclick="toggleSave(this, 'reticulum')">★</div>
+                <div>
+                    <span class="card-tag">Hardware / Mesh</span>
+                    <h2 class="card-title">Reticulum</h2>
+                    <p class="card-desc">The cryptography-based networking stack for building unstoppable networks over LoRa, packet radio, and WiFi. Where Meshtastic is the radio, Reticulum is the internet you build on top of it.</p>
+                </div>
+                <a href="https://reticulum.network" target="_blank" class="card-link">Build Networks &rarr;</a>
+            </div>
+
+            <div class="resource-card">
+                <div class="save-btn" onclick="toggleSave(this, 'adguard-home')">★</div>
+                <div>
+                    <span class="card-tag">Hardware / Network Privacy</span>
+                    <h2 class="card-title">AdGuard Home</h2>
+                    <p class="card-desc">Network-wide ad and tracker blocking at the DNS level (34K+ stars). One install on a Raspberry Pi protects every device in the building. Tracking blocked before it leaves your wall.</p>
+                </div>
+                <a href="https://github.com/AdguardTeam/AdGuardHome" target="_blank" class="card-link">Block At DNS &rarr;</a>
+            </div>
+
+            <div class="resource-card card-wide">
+                <div class="save-btn" onclick="toggleSave(this, 'awesome-selfhosted')">★</div>
+                <div>
+                    <span class="card-tag">Toolkit / Self-Hosted</span>
+                    <h2 class="card-title">Awesome Self-Hosted</h2>
+                    <p class="card-desc">The definitive directory of free software you can run on your own servers — nearly 300K stars, covering everything from email to media to collaboration. The master map for cutting dependence on corporate platforms, one service at a time.</p>
+                </div>
+                <div style="display:flex; gap:15px; margin-top:15px; flex-wrap:wrap;">
+                    <a href="https://awesome-selfhosted.net/" target="_blank" class="btn-dl">Browse Directory</a>
+                    <a href="https://github.com/awesome-selfhosted/awesome-selfhosted" target="_blank" class="card-link" style="align-self:center;">Source &rarr;</a>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <div class="save-btn" onclick="toggleSave(this, 'awesome-osint')">★</div>
+                <div>
+                    <span class="card-tag">Intel / OSINT</span>
+                    <h2 class="card-title">Awesome OSINT</h2>
+                    <p class="card-desc">A community-curated list of open-source intelligence tools and resources (26K+ stars) — the GitHub-native companion to the OSINT Framework above, updated continuously.</p>
+                </div>
+                <a href="https://github.com/jivoi/awesome-osint" target="_blank" class="card-link">Browse List &rarr;</a>
+            </div>
+
+            <div class="resource-card">
+                <div class="save-btn" onclick="toggleSave(this, 'web-check')">★</div>
+                <div>
+                    <span class="card-tag">Intel / OSINT</span>
+                    <h2 class="card-title">Web-Check</h2>
+                    <p class="card-desc">All-in-one analysis of any website (33K+ stars): DNS records, tech stack, security headers, open ports, certificates, and more in one report. Know what a site is before you trust it.</p>
+                </div>
+                <a href="https://web-check.xyz" target="_blank" class="card-link">Analyze A Site &rarr;</a>
+            </div>
+
+            <div class="resource-card">
+                <div class="save-btn" onclick="toggleSave(this, 'sherlock')">★</div>
+                <div>
+                    <span class="card-tag">Intel / Footprint Audit</span>
+                    <h2 class="card-title">Sherlock</h2>
+                    <p class="card-desc">Find where a username exists across hundreds of social networks (84K+ stars). Run it on your own handles first — you can't shrink a digital footprint you haven't mapped.</p>
+                </div>
+                <a href="https://github.com/sherlock-project/sherlock" target="_blank" class="card-link">Audit Footprint &rarr;</a>
             </div>
 
             <div class="resource-card card-stat">
@@ -1267,36 +1727,92 @@
                 <h2>Contribute to the Archive</h2>
                 <p style="color: var(--text-muted);">The archive is living. Submit a tool, article, or resource for verification.</p>
             </div>
+
+            <!-- Formspree Ajax feedback banners -->
+            <div data-fs-success style="
+                display: none;
+                background: #111; color: #fff;
+                border-left: 8px solid #4A5C2F;
+                padding: 20px 25px;
+                font-family: 'Oswald', sans-serif;
+                font-size: 1rem; letter-spacing: 1px;
+                text-transform: uppercase; margin-bottom: 25px;
+            ">// TRANSMISSION RECEIVED — ARCHIVE TEAM WILL VERIFY &amp; INTEGRATE //</div>
+
+            <div data-fs-error style="
+                display: none;
+                background: #fff; color: var(--accent);
+                border-left: 8px solid var(--accent);
+                padding: 20px 25px;
+                font-family: 'Oswald', sans-serif;
+                font-size: 0.9rem; letter-spacing: 1px;
+                text-transform: uppercase; margin-bottom: 25px;
+            ">// TRANSMISSION FAILED — CHECK FIELDS AND RETRY //</div>
+
             <form class="form-grid" id="resourceForm">
                 <div class="form-group">
-                    <label>Resource Title</label>
-                    <input type="text" name="title" placeholder="e.g. Open Source Seeds" required>
+                    <label for="res-title">Resource Title</label>
+                    <input
+                        id="res-title"
+                        type="text"
+                        name="title"
+                        placeholder="e.g. Open Source Seeds"
+                        data-fs-field
+                        required
+                    >
+                    <span data-fs-error="title" style="color: var(--accent); font-family: 'Oswald', sans-serif; font-size: 0.75rem; margin-top: 4px;"></span>
                 </div>
+
                 <div class="form-group">
-                    <label>Category</label>
-                    <select name="category">
-                        <option>Select Category...</option>
+                    <label for="res-category">Category</label>
+                    <select id="res-category" name="category" data-fs-field>
+                        <option value="">Select Category...</option>
                         <option>Toolkit</option>
                         <option>Intel</option>
                         <option>Hardware</option>
                         <option>Health</option>
+                        <option>Legal</option>
+                        <option>Direct Aid</option>
+                        <option>Labor</option>
+                        <option>Education</option>
                     </select>
+                    <span data-fs-error="category" style="color: var(--accent); font-family: 'Oswald', sans-serif; font-size: 0.75rem; margin-top: 4px;"></span>
                 </div>
+
                 <div class="form-group full-width">
-                    <label>Source URL</label>
-                    <input type="url" name="url" placeholder="https://..." required>
+                    <label for="res-url">Source URL</label>
+                    <input
+                        id="res-url"
+                        type="url"
+                        name="url"
+                        placeholder="https://..."
+                        data-fs-field
+                        required
+                    >
+                    <span data-fs-error="url" style="color: var(--accent); font-family: 'Oswald', sans-serif; font-size: 0.75rem; margin-top: 4px;"></span>
                 </div>
+
                 <div class="form-group full-width">
-                    <label>Why is this necessary?</label>
-                    <textarea name="reason" rows="4" placeholder="Briefly explain the utility..."></textarea>
+                    <label for="res-reason">Why is this necessary?</label>
+                    <textarea
+                        id="res-reason"
+                        name="reason"
+                        rows="4"
+                        placeholder="Briefly explain the utility..."
+                        data-fs-field
+                    ></textarea>
+                    <span data-fs-error="reason" style="color: var(--accent); font-family: 'Oswald', sans-serif; font-size: 0.75rem; margin-top: 4px;"></span>
                 </div>
+
                 <div class="form-group full-width">
-                    <button type="submit" class="btn-submit">Submit Contribution</button>
+                    <button type="submit" class="btn-submit" data-fs-submit-btn>Submit Contribution</button>
                 </div>
             </form>
         </div>
 
     </div>
+
+    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0, behavior:'smooth'})" aria-label="Back to top">▲</button>
 
     <footer>
         <div class="container footer-content">
@@ -1306,7 +1822,6 @@
             </div>
             <div class="footer-right">
                 <div class="footer-links">
-                    <a href="#" class="footer-link">Source Code</a>
                     <a href="../assets/docs/the-doctrine_v1.pdf" class="footer-link">Doctrine_v1.pdf</a>
                 </div>
                 <span class="status-badge">EST. 2026 // DECENTRALIZED</span>
@@ -1386,11 +1901,11 @@
             }
         },
         {
-            // Reuters World RSS via rss2json
-            id: 'reuters',
-            label: 'REUTERS',
+            // BBC World RSS via rss2json (Reuters public RSS was discontinued)
+            id: 'bbc',
+            label: 'BBC WORLD',
             cssClass: 'reuters',
-            url: 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Ffeeds.reuters.com%2Freuters%2FworldNews&count=10',
+            url: 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Fworld%2Frss.xml&count=10',
             parse: (data) => {
                 if (!data.items) return [];
                 return data.items.map(item => ({
@@ -1518,19 +2033,45 @@
 
     // 4. FILTER LOGIC
     function filterResources() {
-        const term = searchInput.value.toLowerCase();
+        const term = searchInput.value.toLowerCase().trim();
         const activeBtn = document.querySelector('.filter-btn.active');
-        const filter = activeBtn ? activeBtn.getAttribute('data-filter').toLowerCase() : 'all';
+        const filter = activeBtn ? (activeBtn.getAttribute('data-filter') || 'all').toLowerCase() : 'all';
+        const isFiltering = term.length > 0 || filter !== 'all';
 
+        let visibleCount = 0;
         document.querySelectorAll('.resource-card').forEach(card => {
             const text = card.innerText.toLowerCase();
             const tag = card.querySelector('.card-tag')?.innerText.toLowerCase() || "";
             
             const matchesSearch = text.includes(term);
             const matchesFilter = filter === 'all' || tag.includes(filter);
+            const show = matchesSearch && matchesFilter;
 
-            card.style.display = (matchesSearch && matchesFilter) ? 'flex' : 'none';
+            card.style.display = show ? 'flex' : 'none';
+            if (show) visibleCount++;
         });
+
+        // Section dividers only make sense in the unfiltered view
+        document.querySelectorAll('.section-divider').forEach(div => {
+            div.style.display = isFiltering ? 'none' : 'flex';
+        });
+
+        // Results counter + empty state
+        const meta = document.getElementById('resultsMeta');
+        const empty = document.getElementById('noResults');
+        if (meta) {
+            meta.textContent = `// ${visibleCount} RESOURCE${visibleCount === 1 ? '' : 'S'} MATCHED //`;
+            meta.classList.toggle('visible', isFiltering);
+        }
+        if (empty) empty.classList.toggle('visible', isFiltering && visibleCount === 0);
+    }
+
+    function clearFilters() {
+        searchInput.value = '';
+        filterBtns.forEach(b => b.classList.remove('active'));
+        const allBtn = document.querySelector('.filter-btn[data-filter="all"]');
+        if (allBtn) allBtn.classList.add('active');
+        filterResources();
     }
 
     // 5. INITIALIZATION
@@ -1541,6 +2082,22 @@
         if (localStorage.getItem('theme') === 'dark') {
             document.body.classList.add('dark-mode');
             document.getElementById('themeIcon').innerText = "☀";
+        }
+
+        // Restore saved (starred) resources from previous visits
+        document.querySelectorAll('.save-btn').forEach(btn => {
+            const match = (btn.getAttribute('onclick') || '').match(/'([^']+)'/);
+            if (match && localStorage.getItem(`saved_res_${match[1]}`) === 'true') {
+                btn.classList.add('saved');
+            }
+        });
+
+        // Back-to-top visibility
+        const topBtn = document.getElementById('backToTop');
+        if (topBtn) {
+            window.addEventListener('scroll', () => {
+                topBtn.classList.toggle('visible', window.scrollY > 800);
+            }, { passive: true });
         }
 
         // Fire ticker immediately, then refresh every 10 minutes
@@ -1559,12 +2116,33 @@
     }
 
     filterBtns.forEach(btn => {
+        // Theme toggle shares the .filter-btn style but must not hijack the filter state
+        if (!btn.hasAttribute('data-filter')) return;
         btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
+            filterBtns.forEach(b => { if (b.hasAttribute('data-filter')) b.classList.remove('active'); });
             btn.classList.add('active');
             filterResources();
         });
     });
 </script>
+<!-- =====================================================================
+     FORMSPREE AJAX — endpoint: mdavwlpp
+     CDN approach: no bundler needed, works with plain HTML hosting.
+     data-fs-field  → marks inputs for aria-invalid on validation error
+     data-fs-error  → displays field-level error messages
+     data-fs-success → shown after successful send
+     data-fs-submit-btn → disabled while submitting, re-enabled on completion
+===================================================================== -->
+<script>
+    window.formspree = window.formspree || function () {
+        (formspree.q = formspree.q || []).push(arguments);
+    };
+    formspree('initForm', {
+        formElement: '#resourceForm',
+        formId:      'mdavwlpp'
+    });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+
 </body>
 </html>
